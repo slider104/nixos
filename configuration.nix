@@ -30,6 +30,8 @@
     fsType = "ext4";
     options = [ "nofail" "x-systemd.device-timeout=5" ];
   };
+  hardware.enableRedistributableFirmware = true;
+  hardware.cpu.amd.updateMicrocode = true;   # If AMD
   networking.hostName = "nixos";
   # networking.wireless.enable = true;
   networking.networkmanager.enable = true;
