@@ -73,12 +73,15 @@
   };
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-  users.users."slider" = {
-    isNormalUser = true;
-    description = "slider";
-    extraGroups = [ "audio" "git" "input" "networkmanager" "video" "wheel" ];
+  users = {
+    users."slider" = {
+      isNormalUser = true;
+      description = "slider";
+      extraGroups = [ "audio" "git" "input" "networkmanager" "video" "wheel" ];
+    };
+    groups.slider = {};
   };
-  nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = true;
   environment.pathsToLink = [
     "/share/applications"
     "/share/xdg-desktop-portal"
