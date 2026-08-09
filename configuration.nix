@@ -8,13 +8,15 @@
       ./modules/git/git.nix
       ./modules/ly/ly-niri.nix
     ];
-  boot.loader.timeout = 1;
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/vda";
-    useOSProber = false;
-  };
   security.sudo.wheelNeedsPassword = false;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.timeout = 1;
+  # boot.loader.grub = {
+  #   enable = true;
+  #   device = "/dev/vda";
+  #   useOSProber = false;
+  # };
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     # "vt.global_cursor_default=0"  # Hide TTY cursor
