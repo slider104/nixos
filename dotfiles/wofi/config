@@ -1,0 +1,7 @@
+[config]
+font=JetBrains Mono 18
+width=50%
+lines=15
+show-icons=true
+pango-markup=true
+prompt=>

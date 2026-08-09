@@ -1,0 +1,86 @@
+* {
+    font-family: "JetBrainsMono Nerd Font Mono", monospace;
+    font-size: 18px;
+    font-weight: 900;
+    border: none;
+    border-radius: 0;
+    color: #7fc8ff;
+}
+
+window#waybar {
+    background: transparent;
+    border: none;
+    /* REMOVED: height: 24px; (This is invalid in Waybar CSS) */
+    /* The height is set in the JSON config file */
+}
+
+#custom-launcher,
+#workspaces,
+#cpu,
+#memory,
+#custom-gpu,
+#window,
+#backlight,
+#pulseaudio,
+#clock,
+#custom-power {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+
+    /* This margin centers the island vertically inside the 24px bar */
+    /* (24px bar - ~12px content) / 2 = 6px margin top/bottom */
+    margin: 4px 2px;
+
+    padding: 2px 8px;
+
+    min-height: 0;
+    min-width: 0;
+    transition: background-color 0.2s ease;
+}
+
+#backlight:hover,
+#pulseaudio:hover,
+#custom-launcher:hover,
+#custom-power:hover {
+    background-color: rgba(30, 30, 30, 0.95);
+    box-shadow: 0 0 8px rgba(127, 200, 255, 0.3);
+}
+
+#custom-launcher,
+#custom-power {
+    padding: 2px 6px;
+    min-width: 28px;
+}
+
+#workspaces {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 2px 6px;
+}
+
+#workspaces button {
+    color: #888888;
+    font-weight: 900;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+#workspaces button.active {
+    font-weight: 900
+}
+
+#workspaces button.urgent {
+    color: #ff5555;
+    font-weight: 900;
+}
+
+#clock {
+    padding: 2px 8px;
+    font-weight: 900
+}
+
+#window {
+    background: transparent;
+    padding: 2px 8px;
+    font-style: italic;
+    min-width: 120px;
+}

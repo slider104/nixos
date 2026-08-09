@@ -1,0 +1,87 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 24,
+  "modules-left": [
+    "custom/launcher",
+    "niri/workspaces",
+    "cpu",
+    "memory",
+    "custom/gpu"
+  ],
+  "modules-center": [
+    "niri/window"
+  ],
+  "modules-right": [
+    "backlight",
+    "pulseaudio",
+    "clock",
+    "custom/power"
+  ],
+  "custom/launcher": {
+    "format": "",
+    "on-click": "fuzzel",
+    "tooltip": false
+  },
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "urgent": "!",
+      "active": "●",
+      "default": "○"
+    },
+    "on-click": "activate"
+  },
+  "cpu": {
+    "format": "{usage}% 󰍛",
+    "interval": 2
+  },
+  "memory": {
+    "format": "{}% 󰟛",
+    "interval": 2
+  },
+  "custom/gpu": {
+    "format": "{usage}% 󰍛",
+    "exec": "sensors | grep 'edge' | awk '{print $3}' | tr -d '+°C' || echo '0'",
+    "interval": 2,
+    "return-type": "json"
+  },
+  "niri/window": {
+    "format": "{}",
+    "max-length": 50
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞"],
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%a %d.%m.%y %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "on-click": "fuzzel"
+    }
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "on-click": "fuzzel -d -m 0 -p 'Power'",
+    "tooltip": true
+  }
+}

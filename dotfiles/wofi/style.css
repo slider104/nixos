@@ -1,0 +1,54 @@
+window {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #333333;
+    border-radius: 4px;
+    margin: 0px;
+}
+#input {
+    color: #7fc8ff;
+    background-color: transparent;
+    border: none;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+#inner-box {
+    margin: 10px;
+    background-color: transparent;
+}
+#outer-box {
+    margin: 0px;
+    background-color: transparent;
+}
+#scroll {
+    margin: 0px;
+    background-color: transparent;
+}
+#text {
+    color: rgba(127, 200, 255, 0.6);
+    background-color: transparent;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 18px;
+    padding: 6px 10px;
+}
+#text:selected {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 20%, rgba(127, 200, 255, 0.15) 100%);
+    background-color: transparent;
+    color: #7fc8ff;
+    border-left: 3px solid #7fc8ff;
+    padding-left: 7px;
+    font-weight: normal;
+}
+#text img {
+    margin-right: 12px;
+    background-color: transparent;
+}
+#match {
+    color: #7fc8ff;
+    background-color: transparent;
+}
+#placeholder {
+    color: rgba(127, 200, 255, 0.3);
+    background-color: transparent;
+}
