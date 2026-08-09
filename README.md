@@ -1,6 +1,6 @@
 # Fresh installation
-#### nixos - flakes - niri - waybar - modular - NO home-manager
-this is my personal nixos setup for noobs like me. super lightweight and ready for gaming.
+#### nixos - flakes - niri - waybar - gaming - modular - NO home-manager
+this is my personal nixos setup for noobs like me. super lightweight and ready for gaming. very early, young and unpolished.
 the ly display manager is set to autologin.
 i use the niri window manager with a very simple waybar for now.
 
@@ -119,8 +119,8 @@ fresh ~/.ssh/id_ed25519.pub
 - add that ssh copy to your github https://github.com/settings/keys
 - click on "new ssh key" put it in and give it a name above
 - in your terminal you can now test your ssh setup
-- it could ask you if you want continue without fingerprint
-- type "yes" and you should be fine
+- it will ask you about a phrase and fingerprint
+- hit "enter" (empty phrase) and type "yes" for connecting anyway and you should be fine
 ```bash
 cd nixos
 ```
@@ -138,32 +138,29 @@ git add .
 git commit -m "initial commit"
 ```
 ```bash
-git pull origin main --allow-unrelated-histories
-```
-```bash
-git commit -m "Merge remote changes"
+git remote set-url origin git@github.com:username/repo.git
 ```
 ```bash
 git push -u origin main
 ```
-- this was overkill, but a little bit safer i think
 - whenever you make a change to your config nixos will know when you use git.
 - for a rebuild without "dirty tree" warning your workflow looks like this
 - remember to do all of it in ~/nixos/
+- optional: when git is set up, the zed editor has git builtin
 ```bash
 cd nixos
 ```
 ```bash
 git add .
 ```
+- commit with a short description if it's looking good after rebuild
+```bash
+git commit -m "short description of the change"
+```
 - rebuild nixos to apply changes
 - use "nrs"-alias from anywhere in the filesystem to get the same result
 ```bash
 sudo nixos-rebuild switch --flake .
-```
-- commit with a short description if it's looking good after rebuild
-```bash
-git commit -m "short description of the change"
 ```
 - push to main
 ```bash
