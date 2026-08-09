@@ -9,18 +9,18 @@
       user.name = "slider";
       user.email = "matze33442@gmx.de";
       github.user = "slider104";
-      core.editor = "fresh-editor";
+      core.editor = "fresh";
       init.defaultBranch = "main";
       pull.rebase = false;
       fetch.prune = true;
       alias = {
-        gst = "status";
-        gck = "checkout";
-        gbr = "branch";
-        gcm = "commit";
-        gps = "push";
-        gpl = "pull";
-        gad = "add";
+        st = "status";
+        ck = "checkout";
+        br = "branch";
+        cm = "commit";
+        ps = "push";
+        pl = "pull";
+        ad = "add";
         unstage = "reset HEAD --";
       };
     };
