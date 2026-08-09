@@ -25,6 +25,11 @@
     "amd_pstate=active"
     "fs.inotify.max_user_watches=524288"
   ];
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-uuid/0574158e-46bd-43a8-bd49-8e75304ce6f3";
+    fsType = "ext4";
+    options = [ "nofail" "x-systemd.device-timeout=5" ];
+  };
   networking.hostName = "nixos";
   # networking.wireless.enable = true;
   networking.networkmanager.enable = true;
