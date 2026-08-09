@@ -1,4 +1,7 @@
 # Fresh installation
+this is my personal nixos setup. super lightweight and ready for gaming.
+the ly display manager is set to autologin.
+i use the niri window manager with a very simple waybar for now.
 
 ## 1. ISO installation
 - load the graphical installation ISO from https://nixos.org/download/
