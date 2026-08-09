@@ -1,7 +1,12 @@
 # Fresh installation
-this is my personal nixos setup. super lightweight and ready for gaming.
+#### nixos - flakes - niri - waybar - modular - NO home-manager
+this is my personal nixos setup for noobs like me. super lightweight and ready for gaming.
 the ly display manager is set to autologin.
 i use the niri window manager with a very simple waybar for now.
+
+oh, sorry btw if you are wondering about the english in this document
+i'm not a native english speaker and don't want to use ai for this ;) 
+political? no, i used ai alot to get it to this state.
 
 ## 1. ISO installation
 - load the graphical installation ISO from https://nixos.org/download/
@@ -72,25 +77,28 @@ sudo nixos-rebuild switch --flake .
 ```
 - if an authentication popup shows up, just hit enter without password
 
-### you can exlore
+### --- you can explore ---
 if you are lost at the start, here are the most critical keyboard-shortcuts.
-#### MOD+D = open app launcher, the file exlorer is nemo/files
-#### MOD+T = open terminal "alacritty"
-#### MOD+F = expand active app to screen width (toggle)
-#### MOD+M = active app fullscreen (toggle)
-#### MOD+ARROW = navigate open apps
-#### MOD+CTRL+ARROW = move active app
-#### use PGUP and PGDOWN instead of ARROW to navigate/move between workspaces
+####   MOD+D = open app launcher, the file exlorer is nemo/files
+####   MOD+T = open terminal "alacritty"
+####   MOD+F = expand active app to screen width (toggle)
+####   MOD+M = active app fullscreen (toggle)
+####   MOD+ARROW = navigate open apps
+####   MOD+CTRL+ARROW = move active app
+####   use PGUP and PGDOWN instead of ARROW to navigate/move between workspaces
 the system itself is very clean and minimal.
 learn about the system and its structure in your ~/nixos directory.
 look in configuration.nix and follow the path of all the imports to learn its modular structure.
-in ~/nixos/home.nix are my bash aliases living for now. usefull if you change alot.
+in /modules are all the *.nix modules. when you want to create a new custom dotfile for a program, 
+you can use my blueprint system. take a look at /modules/fuzzel/fuzzel.nix it makes sure you can edit your dotfiles in /dotfiles/yourdotfile/config.cfg and link it to the correct directory.
+sometimes when there is no original config file in ~/.config/ you have to put it there to make shure nixos can see it for the link.
+in ~/nixos/modules/bash/bash.nix are my bash aliases. usefull if you change alot.
 ```nix
-cat = "bat";
-ll = "ls -la";
-nrs = "sudo nixos-rebuild switch --flake ~/nixos#nixos";
-nck = "cd ~/nixos && nix flake check && cd -";
-ncg = "cd ~/nixos && sudo nix-collect-garbage --delete-older-than +5 && cd -";
+cat # "bat";
+ll # "ls -la";
+nrs # "sudo nixos-rebuild switch --flake ~/nixos#nixos";
+nck # "cd ~/nixos && nix flake check && cd -";
+ncg # "cd ~/nixos && sudo nix-collect-garbage --delete-older-than +5 && cd -";
 ```
 when you want to sync changes you make to your own git repo, 
 you need to modify the ~/nixos/modules/git/git.nix module for your git account.
@@ -117,7 +125,7 @@ cd nixos
 ```bash
 ssh -T git@github.com
 ```
-- for the first setup make sure your repo is created and follow these
+- for the first setup make sure your repo is created, than follow these
 ```bash
 git init
 ```
@@ -137,9 +145,34 @@ git commit -m "Merge remote changes"
 git push -u origin main
 ```
 - this was overkill, but a little bit safer i think
-
-______________________________________________________
-
+- whenever you make a change to your config nixos will know when you use git.
+- for a rebuild without "dirty tree" warning your workflow looks like this
+- remember to do all of it in ~/nixos/
+```bash
+cd nixos
+```
+```bash
+git add .
+```
+- rebuild nixos to apply changes
+- use "nrs"-alias from anywhere in the filesystem to get the same result
+```bash
+sudo nixos-rebuild switch --flake .
+```
+- commit with a short description if it's looking good after rebuild
+```bash
+git commit -m "short description of the change"
+```
+- push to main
+```bash
+git push
+```
+if you ever crash badly after a rebuild and can't revert to a working state, 
+pull the working files before you push the broken build to main
+```bash
+git pull
+```
+#  
 have fun with nixos
 
 slider
