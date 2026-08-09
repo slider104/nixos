@@ -9,7 +9,7 @@ i use the niri window manager with a very simple waybar for now.
 - boot from USB into KDE with the latest Kernal
 - do the standard install and select KDE as the desktop 
 - select the username that you want
-#### !!! set hostname to "nixos" !!! this guide does not rewrite your hostname
+####   !!! set hostname to "nixos" !!! this guide does not rewrite your hostname
 - reboot into your fresh system
 
 ## 2. Initial configuration for flakes and git
@@ -45,7 +45,7 @@ sudo nixos-rebuild switch
 ```bash
 git clone https://github.com/slider104/nixos.git
 ```
-##### - DELETE ~/nixos/harware-configuration.nix you need your own
+#####   - DELETE ~/nixos/harware-configuration.nix you need your own
 - go to /etc/nixos/ and copy the generated hardware-configuration.nix
 - put that copy in ~/nixos/ instead of the one you got from my repo
 - go to ~/nixos/dotfiles select all folders and copy them
@@ -73,7 +73,7 @@ sudo nixos-rebuild switch --flake .
 - if an authentication popup shows up, just hit enter without password
 
 ### you can exlore
-if you are lost at the start, here are the most critical keyboard-shortcuts
+if you are lost at the start, here are the most critical keyboard-shortcuts.
 #### MOD+D = open app launcher, the file exlorer is nemo/files
 #### MOD+T = open terminal "alacritty"
 #### MOD+F = expand active app to screen width (toggle)
@@ -81,10 +81,10 @@ if you are lost at the start, here are the most critical keyboard-shortcuts
 #### MOD+ARROW = navigate open apps
 #### MOD+CTRL+ARROW = move active app
 #### use PGUP and PGDOWN instead of ARROW to navigate/move between workspaces
-the system itself is very clean and minimal
-learn about the system and its structure in your ~/nixos directory
-look in configuration.nix and follow the path of all the imports to learn its modular structure
-in ~/nixos/home.nix are my bash aliases living for now. usefull if you change alot
+the system itself is very clean and minimal.
+learn about the system and its structure in your ~/nixos directory.
+look in configuration.nix and follow the path of all the imports to learn its modular structure.
+in ~/nixos/home.nix are my bash aliases living for now. usefull if you change alot.
 ```nix
 cat = "bat";
 ll = "ls -la";
@@ -92,7 +92,7 @@ nrs = "sudo nixos-rebuild switch --flake ~/nixos#nixos";
 nck = "cd ~/nixos && nix flake check && cd -";
 ncg = "cd ~/nixos && sudo nix-collect-garbage --delete-older-than +5 && cd -";
 ```
-when you want to sync changes you make to your own git repo
+when you want to sync changes you make to your own git repo, 
 you need to modify the ~/nixos/modules/git/git.nix module for your git account.
 
 ## 6. Setting up git
