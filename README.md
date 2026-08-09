@@ -55,6 +55,8 @@ git clone https://github.com/slider104/nixos.git
 - put that copy in ~/nixos/ instead of the one you got from my repo
 - go to ~/nixos/dotfiles select all folders and copy them
 - got to ~/.config and paste the copies in there
+- take a look also in ~/nixos/configuration.nix for language and keyboard layout
+  it is set to system language: en-us and keyboard layout: german
 - don't do a rebuild, you need to overwrite the username first!
 
 ## 4. Change the username in the complete repo
