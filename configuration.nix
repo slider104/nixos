@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./modules/bash/bash.nix
       ./modules/gaming/gaming.nix
       ./modules/git/git.nix
       ./modules/ly/ly-niri.nix
@@ -106,7 +107,6 @@
 
   # $ nix search wget
   environment.systemPackages = [
-    pkgs.bat
     pkgs.bottom
     pkgs.fresh-editor
     pkgs.git
