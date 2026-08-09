@@ -32,7 +32,7 @@
     options = [ "nofail" "x-systemd.device-timeout=5" ];
   };
   hardware.enableRedistributableFirmware = true;
-  hardware.cpu.amd.updateMicrocode = true;   # If AMD
+  hardware.cpu.amd.updateMicrocode = true;
   networking.hostName = "nixos";
   # networking.wireless.enable = true;
   networking.networkmanager.enable = true;
