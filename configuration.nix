@@ -29,7 +29,11 @@
   fileSystems."/mnt/data" = {
     device = "/dev/disk/by-uuid/0574158e-46bd-43a8-bd49-8e75304ce6f3";
     fsType = "ext4";
-    options = [ "nofail" "x-systemd.device-timeout=5" ];
+    options = [
+      "nofail"
+      "x-systemd.device-timeout=0"
+      "x-systemd.automount"
+    ];
   };
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.amd.updateMicrocode = true;
@@ -77,11 +81,18 @@
     users."slider" = {
       isNormalUser = true;
       description = "slider";
-      extraGroups = [ "audio" "git" "input" "networkmanager" "video" "wheel" ];
+      extraGroups = [
+        "audio"
+        "git"
+        "input"
+        "networkmanager"
+        "slider"
+        "video"
+        "wheel"
+      ];
     };
-    groups.slider = {};
   };
-    nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
   environment.pathsToLink = [
     "/share/applications"
     "/share/xdg-desktop-portal"
