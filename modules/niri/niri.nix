@@ -36,15 +36,20 @@ in
   systemd.tmpfiles.rules = flatRules;
   imports = lib.flatten (if imports != [] then imports else []);
   systemd.services.niri = {
-    Type = "simple";
-    User = "${username}";
-    ExecStart = "${pkgs.niri}/bin/niri";
-    # ExecStartPre = "${pkgs.coreutils}/bin/sleep 2";
-    Restart = "on-failure";
-    RestartSec = "5s";
-    After = [ "display-manager.service" "systemd-user-session.service" ];
-    Wants = [ "display-manager.service" ];
-    # Environment = "XDG_RUNTIME_DIR=/run/user/%U";
+    enable = true;
+    after = [ "display-manager.service" "systemd-user-sessions.service" ];
+    wants = [ "display-manager.service" ];
+    serviceConfig = {
+      Type = "simple";
+      User = "${username}";
+      ExecStart = "${pkgs.niri}/bin/niri";
+      # ExecStartPre = "${pkgs.coreutils}/bin/sleep 2";
+      Restart = "on-failure";
+      RestartSec = "5s";
+      Environment = "XDG_RUNTIME_DIR=/run/user/%U";
+      StandardInput = "tty";
+      StandardOutput = "journal";
+      StandardError = "journal";
+    };
   };
-  wantedBy = [ "default.target" ];
 }
