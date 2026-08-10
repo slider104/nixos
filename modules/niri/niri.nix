@@ -43,7 +43,7 @@ in
       Type = "simple";
       User = "${username}";
       ExecStart = "${pkgs.niri}/bin/niri";
-      # ExecStartPre = "${pkgs.coreutils}/bin/sleep 2";
+      ExecStartPre = "${pkgs.coreutils}/bin/sleep 2";
       Restart = "on-failure";
       RestartSec = "5s";
       Environment = "XDG_RUNTIME_DIR=/run/user/%U";

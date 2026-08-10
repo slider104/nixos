@@ -62,7 +62,7 @@
     };
   };
   services.gvfs.enable = true;
-  services.xserver.enable = true;
+  services.xserver.enable = false;
   services.xserver.xkb = {
     layout = "de";
     variant = "";
@@ -100,7 +100,6 @@
   environment.systemPackages = [
     pkgs.bottom
     pkgs.fresh-editor
-    pkgs.git
     pkgs.nil
     pkgs.seahorse
     pkgs.shortwave
