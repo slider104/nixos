@@ -1,87 +1,104 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 24,
+  "height": 30,
+  "margin-top": 4,
+  "margin-left": 4,
+  "margin-right": 4,
+  "spacing": 4,
   "modules-left": [
     "custom/launcher",
     "niri/workspaces",
+    "custom/separator",
     "cpu",
+    "custom/separator",
     "memory",
+    "custom/separator",
     "custom/gpu"
   ],
   "modules-center": [
     "niri/window"
   ],
   "modules-right": [
-    "backlight",
+    "custom/power",
+    "custom/separator",
     "pulseaudio",
-    "clock",
-    "custom/power"
+    "custom/separator",
+    "backlight",
+    "custom/separator",
+    "custom/weather",
+    "custom/separator",
+    "clock"
   ],
   "custom/launcher": {
-    "format": "",
-    "on-click": "fuzzel",
+    "format": "",
+    "on-click": "wofi --show drun",
     "tooltip": false
   },
   "niri/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5",
-      "urgent": "!",
-      "active": "●",
-      "default": "○"
+      "active": "",
+      "default": ""
     },
     "on-click": "activate"
   },
+  "custom/separator": {
+    "format": "|",
+    "tooltip": false
+  },
   "cpu": {
-    "format": "{usage}% 󰍛",
-    "interval": 2
+    "format": " {usage}%",
+    "interval": 5
   },
   "memory": {
-    "format": "{}% 󰟛",
-    "interval": 2
+    "format": " {percentage}%",
+    "interval": 5
   },
   "custom/gpu": {
-    "format": "{usage}% 󰍛",
-    "exec": "sensors | grep 'edge' | awk '{print $3}' | tr -d '+°C' || echo '0'",
-    "interval": 2,
+    "format": " {}",
+    "exec": "gpu-usage-waybar",
+    "interval": 5,
     "return-type": "json"
   },
   "niri/window": {
     "format": "{}",
-    "max-length": 50
-  },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{percent}% {icon}",
-    "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞"],
-    "on-scroll-up": "brightnessctl set +5%",
-    "on-scroll-down": "brightnessctl set 5%-",
+    "max-length": 50,
     "tooltip": false
+  },
+  "custom/power": {
+    "format": "",
+    "on-click": "wofi --show run -p 'Power' -d 'Shutdown:shutdown now\\nReboot:reboot'",
+    "tooltip-format": "Click for Power Options"
   },
   "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-icons": ["󰕿", "󰖀", "󰕾"],
-    "on-click": "pavucontrol",
-    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
-    "tooltip": false
+    "format": "{icon} {volume}%",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["", ""],
+    "on-click": "brightnessctl set 10%+",
+    "on-click-right": "brightnessctl set 10%-"
+  },
+  "custom/weather": {
+    "format": " {}",
+    "exec": "curl -s 'wttr.in/Gütersloh?format=%t+%c' | sed 's/+/ /g'",
+    "interval": 600,
+    "tooltip": true
   },
   "clock": {
     "format": "{:%a %d.%m.%y %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip": true,
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
-      "mode": "month",
-      "on-click": "fuzzel"
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1
     }
-  },
-  "custom/power": {
-    "format": "󰐥",
-    "on-click": "fuzzel -d -m 0 -p 'Power'",
-    "tooltip": true
   }
 }

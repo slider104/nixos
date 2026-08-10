@@ -1,86 +1,104 @@
 * {
-    font-family: "JetBrainsMono Nerd Font Mono", monospace;
-    font-size: 18px;
-    font-weight: 900;
+    font-family: "JetBrainsMono Nerd Font Mono";
+    font-weight: bold;
+    font-size: 14px;
     border: none;
     border-radius: 0;
-    color: #7fc8ff;
+    min-height: 0;
 }
 
+/* Main Bar Background - Transparent to see wallpaper */
 window#waybar {
     background: transparent;
-    border: none;
-    /* REMOVED: height: 24px; (This is invalid in Waybar CSS) */
-    /* The height is set in the JSON config file */
+    color: #ffffff;
 }
 
+/* The "Island" Containers */
+/* We apply the black background and rounding to the modules themselves */
 #custom-launcher,
-#workspaces,
+#niri-workspaces,
 #cpu,
 #memory,
 #custom-gpu,
-#window,
-#backlight,
+#custom-power,
 #pulseaudio,
+#backlight,
+#custom-weather,
 #clock,
-#custom-power {
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 4px;
-
-    /* This margin centers the island vertically inside the 24px bar */
-    /* (24px bar - ~12px content) / 2 = 6px margin top/bottom */
-    margin: 4px 2px;
-
+#custom-separator {
+    background-color: #000000;
     padding: 2px 8px;
-
-    min-height: 0;
-    min-width: 0;
-    transition: background-color 0.2s ease;
+    margin: 2px 0px; /* 2px free around buttons as requested */
+    border-radius: 4px;
+    color: #ffffff;
 }
 
-#backlight:hover,
-#pulseaudio:hover,
+/* Accent Color for specific active states or hover */
 #custom-launcher:hover,
-#custom-power:hover {
-    background-color: rgba(30, 30, 30, 0.95);
-    box-shadow: 0 0 8px rgba(127, 200, 255, 0.3);
+#niri-workspaces button.active,
+#cpu:hover,
+#memory:hover,
+#custom-gpu:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#custom-weather:hover,
+#clock:hover {
+    color: #7fc8ff;
+    background-color: #1a1a1a; /* Slightly lighter black on hover */
 }
 
-#custom-launcher,
-#custom-power {
-    padding: 2px 6px;
-    min-width: 28px;
+/* Separator Style */
+#custom-separator {
+    padding: 2px 4px;
+    color: #555555;
+    background-color: transparent; /* Make separator invisible or keep black if preferred */
+    /* If you want the '|' to be inside the black island, keep background-color: #000000; */
+    /* If you want it floating between islands, set background to transparent and adjust margins */
 }
 
-#workspaces {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 2px 6px;
-}
-
-#workspaces button {
-    color: #888888;
-    font-weight: 900;
-    padding: 2px 6px;
-    border-radius: 4px;
-}
-
-#workspaces button.active {
-    font-weight: 900
-}
-
-#workspaces button.urgent {
-    color: #ff5555;
-    font-weight: 900;
-}
-
-#clock {
-    padding: 2px 8px;
-    font-weight: 900
-}
-
-#window {
+/* Center Window Title - Fully Transparent */
+#niri-window {
     background: transparent;
+    color: #ffffff;
+    padding: 0 10px;
+    margin: 2px 0;
+}
+
+/* Workspace Buttons Specifics */
+#niri-workspaces button {
     padding: 2px 8px;
-    font-style: italic;
-    min-width: 120px;
+    margin: 2px 0;
+    background-color: #000000;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+#niri-workspaces button.active {
+    color: #7fc8ff;
+    background-color: #1a1a1a;
+}
+
+#niri-workspaces button:hover {
+    color: #7fc8ff;
+}
+
+/* Power Button Special Styling */
+#custom-power {
+    color: #ff5555; /* Red hint for power */
+}
+#custom-power:hover {
+    color: #ffffff;
+    background-color: #ff5555; /* Full red on hover */
+}
+
+/* Tooltip Styling */
+tooltip {
+    background: #000000;
+    border: 1px solid #7fc8ff;
+    border-radius: 4px;
+    padding: 5px;
+}
+tooltip label {
+    color: #ffffff;
+    font-weight: normal;
 }

@@ -5,7 +5,7 @@ let
   configDir = ".config/waybar";
   pkg = [
     pkgs.brightnessctl
-    pkgs.fuzzel
+    pkgs.gpu-usage-waybar
     pkgs.pavucontrol
     pkgs.lm_sensors
     pkgs.waybar
