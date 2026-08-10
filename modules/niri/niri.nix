@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 let
   username = "slider";
+  userGroup = "users";
   configDir = ".config/niri";
   pkg = [
     pkgs.alacritty
@@ -25,7 +26,7 @@ let
   userHome = config.users.users.${username}.home;
   userName = config.users.users.${username}.name;
   rules = map (file: [
-    "d ${userHome}/${configDir} 0755 ${userName} ${userName} -"
+    "d ${userHome}/${configDir} 0755 ${userName} ${userGroup} -"
     "L+ ${userHome}/${configDir}/${file.target} - - - - ${file.source}"
   ]) configFiles;
   flatRules = lib.flatten rules;
