@@ -1,39 +1,50 @@
-{ pkgs, ... }: {
-  imports = [ ../niri/niri.nix ];
-  programs.niri.enable = true;
-  security.polkit.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.ly.enableGnomeKeyring = true;
-  services.displayManager = {
-    ly = {
-      enable = true;
-      settings = {
-        animate = true;
-        animation = "matrix";
-      };
-    };
-    autoLogin = {
-      enable = true;
-      user = "slider";
-    };
-    defaultSession = "niri";
-    sessionPackages = [ pkgs.niri ];
-  };
-  environment.systemPackages = [
-    pkgs.cmatrix
-    pkgs.polkit_gnome
+{ config, pkgs, lib, ... }:
+
+let
+  myModuleName = "ly-niri";
+  myModulePackages = with pkgs; [
+    cmatrix
   ];
-  systemd.user.services.polkit-gnome-authentication-agent-1 = {
-    description = "polkit-gnome-authentication-agent-1";
-    wantedBy = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
+in
+{
+  options.${myModuleName}.enable = lib.mkEnableOption "Ly display manager with auto-login";
+  options.${myModuleName}.packages = lib.mkOption {
+    type = lib.types.listOf lib.types.package;
+    default = [];
+  };
+
+  config = lib.mkIf config.${myModuleName}.enable {
+    ${myModuleName}.packages = myModulePackages;
+    security.polkit.enable = true;
+
+    # services.gnome.gnome-keyring.enable = true;
+    # security.pam.services.ly.enableGnomeKeyring = true;
+
+    services.displayManager = {
+      ly = {
+        enable = true;
+        settings = {
+          animate = true;
+          animation = "matrix";
+          # Add your user here if not using autoLogin
+          # user = "slider";
+        };
+      };
+
+      autoLogin = {
+        enable = true;
+        user = "slider";
+        # Optional: Set a specific shell (defaults to niri session)
+        # defaultShell = pkgs.bashInteractive;
+      };
+
+      defaultSession = "niri";
+
+      sessionPackages = [ pkgs.niri ];
     };
+
+    # systemd.user.services.polkit-gnome-authentication-agent-1 = {
+    #   enable = true;
+    # };
   };
 }

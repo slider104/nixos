@@ -2,11 +2,7 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
-      ./modules/bash/bash.nix
-      ./modules/gaming/gaming.nix
-      ./modules/git/git.nix
-      ./modules/ly/ly-niri.nix
+      ./hub.nix
     ];
   security.sudo.wheelNeedsPassword = false;
   boot.loader.systemd-boot.enable = true;
@@ -54,9 +50,12 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
-  xdg.portal = {
+  services.xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-wlr
+    ];
     config = {
       common.default = "gtk";
     };
@@ -96,16 +95,6 @@
   environment.pathsToLink = [
     "/share/applications"
     "/share/xdg-desktop-portal"
-  ];
-  environment.systemPackages = [
-    pkgs.bottom
-    pkgs.fresh-editor
-    pkgs.nil
-    pkgs.seahorse
-    pkgs.shortwave
-    pkgs.superfile
-    pkgs.vulkan-tools
-    pkgs.wget
   ];
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

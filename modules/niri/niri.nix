@@ -1,55 +1,59 @@
 { config, pkgs, lib, ... }:
+
 let
-  username = "slider";
-  userGroup = "users";
-  configDir = ".config/niri";
-  pkg = [
+  myModuleName = "niri";
+  myModulePackages = [
     pkgs.alacritty
     pkgs.brave
     pkgs.capitaine-cursors
     pkgs.nemo
     pkgs.nemo-fileroller
     pkgs.niri
-    pkgs.superfile
     pkgs.swaybg
     pkgs.xwayland-satellite
   ];
-  configFiles = [
+
+  myConfigDir = ".config/niri";
+  myConfigFiles = [
     { source = ../../dotfiles/niri/config.kdl; target = "config.kdl"; }
   ];
-  imports = [
-    ../waybar/waybar.nix
-    ../fuzzel/fuzzel.nix
-    ../wofi/wofi.nix
-    ../zed/zed.nix
-  ];
-  userHome = config.users.users.${username}.home;
-  userName = config.users.users.${username}.name;
-  rules = map (file: [
-    "d ${userHome}/${configDir} 0755 ${userName} ${userGroup} -"
-    "L+ ${userHome}/${configDir}/${file.target} - - - - ${file.source}"
-  ]) configFiles;
+
+  username = config.users.users.slider.name;
+  userGroup = config.users.users.slider.group;
+  userHome = config.users.users.slider.home;
+
+  rules = lib.map (file: [
+    "d ${userHome}/${myConfigDir} 0755 ${username} ${userGroup} -"
+    "L+ ${userHome}/${myConfigDir}/${file.target} - - - - ${file.source}"
+  ]) myConfigFiles;
   flatRules = lib.flatten rules;
 in
 {
-  environment.systemPackages = if pkg != [] then pkg else [];
-  systemd.tmpfiles.rules = flatRules;
-  imports = lib.flatten (if imports != [] then imports else []);
-  systemd.services.niri = {
-    enable = true;
-    after = [ "display-manager.service" "systemd-user-sessions.service" ];
-    wants = [ "display-manager.service" ];
-    serviceConfig = {
-      Type = "simple";
-      User = "${username}";
-      ExecStart = "${pkgs.niri}/bin/niri";
-      ExecStartPre = "${pkgs.coreutils}/bin/sleep 2";
-      Restart = "on-failure";
-      RestartSec = "5s";
-      Environment = "XDG_RUNTIME_DIR=/run/user/%U";
-      StandardInput = "tty";
-      StandardOutput = "journal";
-      StandardError = "journal";
+  options.${myModuleName}.enable = lib.mkEnableOption "${myModuleName}";
+  options.${myModuleName}.packages = lib.mkOption {
+    type = lib.types.listOf lib.types.package;
+    default = [];
+  };
+
+  programs.${myModuleName}.enable = true;
+  config = lib.mkIf config.${myModuleName}.enable {
+    ${myModuleName}.packages = myModulePackages;
+    systemd.tmpfiles.rules = flatRules;
+    systemd.services.${myModuleName} = {
+      enable = true;
+      after = [ "display-manager.service" "systemd-user-sessions.service" ];
+      wants = [ "display-manager.service" ];
+      serviceConfig = {
+        Type = "simple";
+        User = "${username}";
+        ExecStart = "${pkgs.niri}/bin/niri";
+        Restart = "on-failure";
+        RestartSec = 5;
+        Environment = "XDG_RUNTIME_DIR=/run/user/%U";
+        StandardInput = "tty";
+        StandardOutput = "journal";
+        StandardError = "journal";
+      };
     };
   };
 }

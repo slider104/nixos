@@ -1,65 +1,77 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
-{
-  imports = [
-  ];
+let
+  # --- CONFIGURATION BLOCK ---
+  myModuleName = "gaming";
 
-  environment.systemPackages = [
+  # Packages to install
+  myModulePackages = [
     # Primary Launchers
     pkgs.steam
-    pkgs.prismlauncher        # Minecraft (managed modpacks)
-    # pkgs.heroic               # Epic Games & GOG
-    # pkgs.lutris               # Universal launcher for non-store games
-    pkgs.protonup-qt          # GUI to install Proton-GE & Luxtorpeda
+    pkgs.prismlauncher
+    # pkgs.heroic
+    # pkgs.lutris
+    pkgs.protonup-qt
 
     # Utilities
-    pkgs.mangohud             # FPS/Performance overlay (Shift+R+F12)
-    pkgs.gamescope            # Compositor (also available system-wide)
-    pkgs.gamemode             # Client binary
-    pkgs.winetricks           # Wine configuration helper
+    pkgs.mangohud
+    pkgs.gamescope
+    pkgs.gamemode
+    pkgs.winetricks
 
-    # Emulation (Optional)
+    # Emulation
     # pkgs.retroarch
     # pkgs.rpcs3
     # pkgs.yuzu
   ];
-
-  # Kernel Optimization (Optional)
-  # boot.kernelPackages = pkgs.linuxPackages_xanmod;
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+in
+{
+  # --- DEFINE OPTIONS ---
+  options.${myModuleName}.enable = lib.mkEnableOption "${myModuleName}";
+  options.${myModuleName}.packages = lib.mkOption {
+    type = lib.types.listOf lib.types.package;
+    default = [];
   };
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-    extraCompatPackages = [ pkgs.proton-ge-bin ]; # Auto-install Proton GE
+  # --- APPLY LOGIC ---
+  config = lib.mkIf config.${myModuleName}.enable {
 
-    # Enable Gamescope session support (Steam Deck like experience)
-    gamescopeSession.enable = false;
+    # Set the packages variable (for the merge in config.nix)
+    ${myModuleName}.packages = myModulePackages;
 
-    # Optional: Enable Platform Optimizations (sysctl tweaks from SteamOS)
-    # platformOptimizations.enable = true;
-  };
+    # Enable System-Wide Graphics
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
 
-  # Performance Tools
-  # Gamemode: Automatically boosts CPU/GPU priority when games run
-  programs.gamemode = {
-    enable = true;
-    enableRenice = true; # Give games higher priority
-  };
+    # Enable Steam
+    programs.steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+      gamescopeSession.enable = false; # Steam Deck session
+    };
 
-  # Gamescope: Micro-compositor for scaling, FSR, and frame limiting
-  programs.gamescope = {
-    enable = true;
-    capSysNice = true; # Allow real-time scheduling
-    args = [
-      "--rt"             # Real-time priority
-      "--expose-wayland" # Native Wayland support
-    ];
+    # Enable Gamemode
+    programs.gamemode = {
+      enable = true;
+      enableRenice = true;
+    };
+
+    # Enable Gamescope
+    programs.gamescope = {
+      enable = true;
+      capSysNice = true;
+      args = [
+        "--rt"
+        "--expose-wayland"
+      ];
+    };
+
+    # Optional: Kernel Optimizations
+    # boot.kernelPackages = pkgs.linuxPackages_xanmod;
   };
 }

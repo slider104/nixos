@@ -1,26 +1,35 @@
 { config, pkgs, lib, ... }:
+
 let
-  username = "slider";
-  userGroup = "users";
-  configDir = ".config/zed";
-  pkg = [
+  myModuleName = "zed";
+  myModulePackages = [
     pkgs.zed-editor
   ];
-  configFiles = [
+
+  myConfigDir = ".config/zed";
+  myConfigFiles = [
     { source = ../../dotfiles/zed/settings.json; target = "settings.json"; }
   ];
-  imports = [
-  ];
-  userHome = config.users.users.${username}.home;
-  userName = config.users.users.${username}.name;
-  rules = map (file: [
-    "d ${userHome}/${configDir} 0755 ${userName} ${userGroup} -"
-    "L+ ${userHome}/${configDir}/${file.target} - - - - ${file.source}"
-  ]) configFiles;
+
+  username = config.users.users.slider.name;
+  userGroup = config.users.users.slider.group;
+  userHome = config.users.users.slider.home;
+
+  rules = lib.map (file: [
+    "d ${userHome}/${myConfigDir} 0755 ${username} ${userGroup} -"
+    "L+ ${userHome}/${myConfigDir}/${file.target} - - - - ${file.source}"
+  ]) myConfigFiles;
   flatRules = lib.flatten rules;
 in
 {
-  environment.systemPackages = if pkg != [] then pkg else [];
-  systemd.tmpfiles.rules = flatRules;
-  imports = lib.flatten (if imports != [] then imports else []);
+  options.${myModuleName}.enable = lib.mkEnableOption "${myModuleName}";
+  options.${myModuleName}.packages = lib.mkOption {
+    type = lib.types.listOf lib.types.package;
+    default = [];
+  };
+
+  config = lib.mkIf config.${myModuleName}.enable {
+    ${myModuleName}.packages = myModulePackages;
+    systemd.tmpfiles.rules = flatRules;
+  };
 }
