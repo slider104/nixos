@@ -35,7 +35,6 @@ in
     default = [];
   };
 
-  programs.${myModuleName}.enable = true;
   config = lib.mkIf config.${myModuleName}.enable {
     ${myModuleName}.packages = myModulePackages;
     systemd.tmpfiles.rules = flatRules;
