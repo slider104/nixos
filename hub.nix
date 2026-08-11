@@ -10,7 +10,7 @@
     ./modules/niri/niri.nix
     ./modules/waybar/waybar.nix
     ./modules/wofi/wofi.nix
-    ./modules/zed/zed.nix
+    ./modules/zed/zed-editor.nix
   ];
 
   # --- ENABLE MODULES ---
@@ -22,7 +22,7 @@
   niri.enable = true;
   waybar.enable = true;
   wofi.enable = true;
-  zed.enable = true;
+  zed-editor.enable = true;
 
   # --- MERGE BLOCK ---
   nixpkgs.config.allowUnfree = true;
@@ -35,7 +35,7 @@
     config.niri.packages
     config.waybar.packages
     config.wofi.packages
-    config.zed.packages
+    config.zed-editor.packages
 
     pkgs.bat
     pkgs.bottom

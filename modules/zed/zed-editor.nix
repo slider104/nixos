@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  myModuleName = "zed";
+  myModuleName = "zed-editor";
   myModulePackages = [
     pkgs.zed-editor
   ];
