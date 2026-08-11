@@ -31,7 +31,7 @@
     config.fuzzel.packages
     config.gaming.packages
     config.git.packages
-    config.ly.packages
+    config.ly-niri.packages
     config.niri.packages
     config.waybar.packages
     config.wofi.packages
