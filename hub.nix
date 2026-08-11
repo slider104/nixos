@@ -35,7 +35,7 @@
     config.niri.packages
     config.waybar.packages
     config.wofi.packages
-    config.zed.packages
+    config.zed-editor.packages
 
     pkgs.bat
     pkgs.bottom
