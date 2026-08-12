@@ -60,7 +60,7 @@
       common.default = "gtk";
     };
   };
-  services.gvfs.enable = true;
+  # services.gvfs.enable = true;
   services.xserver.enable = false;
   services.xserver.xkb = {
     layout = "de";
