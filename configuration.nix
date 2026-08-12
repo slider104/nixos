@@ -53,7 +53,7 @@
   xdg.portal = {
     enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
+      # pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-wlr
     ];
     config = {
@@ -61,6 +61,7 @@
     };
   };
   # services.gvfs.enable = true;
+  services.udisks2.enable = true;
   services.xserver.enable = false;
   services.xserver.xkb = {
     layout = "de";
