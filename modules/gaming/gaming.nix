@@ -27,10 +27,12 @@ let
 in
 {
   # --- DEFINE OPTIONS ---
-  options.${myModuleName}.enable = lib.mkEnableOption "${myModuleName}";
-  options.${myModuleName}.packages = lib.mkOption {
-    type = lib.types.listOf lib.types.package;
-    default = [];
+  options.${myModuleName} = {
+    enable = lib.mkEnableOption "${myModuleName}";
+    packages = lib.mkOption {
+      type = lib.types.listOf lib.types.package;
+      default = [];
+    };
   };
 
   # --- APPLY LOGIC ---
