@@ -3,7 +3,7 @@
 let
   myModuleName = "zed-editor";
   myModulePackages = [
-    pkgs.zed-editor
+    pkgs."zed-editor"
   ];
 
   myConfigDir = ".config/zed";
