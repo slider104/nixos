@@ -53,11 +53,11 @@
   xdg.portal = {
     enable = true;
     extraPortals = [
-      # pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-wlr
     ];
     config = {
-      common.default = "gtk";
+      common.default = "wlr";
     };
   };
   # services.gvfs.enable = true;
