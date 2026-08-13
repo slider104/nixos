@@ -7,6 +7,7 @@ let
     pkgs.bottom
     pkgs.fresh-editor
     pkgs.lufus
+    pkgs.mediawriter
     pkgs.nil
     pkgs.seahorse
     pkgs.shortwave
