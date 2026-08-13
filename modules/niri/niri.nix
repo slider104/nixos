@@ -40,21 +40,22 @@ in
   config = lib.mkIf config.${myModuleName}.enable {
     ${myModuleName}.packages = myModulePackages;
     systemd.tmpfiles.rules = flatRules;
-    systemd.services.${myModuleName} = {
-      enable = true;
-      after = [ "display-manager.service" "systemd-user-sessions.service" ];
-      wants = [ "display-manager.service" ];
-      serviceConfig = {
-        Type = "simple";
-        User = "${username}";
-        ExecStart = "${pkgs.niri}/bin/niri";
-        Restart = "on-failure";
-        RestartSec = 5;
-        Environment = "XDG_RUNTIME_DIR=/run/user/%U";
-        StandardInput = "tty";
-        StandardOutput = "journal";
-        StandardError = "journal";
-      };
-    };
+
+    # systemd.user.services.${myModuleName} = {
+    #   enable = true;
+    #   after = [ "display-manager.service" "systemd-user-sessions.service" ];
+    #   wants = [ "display-manager.service" ];
+    #   serviceConfig = {
+    #     Type = "simple";
+    #     User = "${username}";
+    #     ExecStart = "${pkgs.niri}/bin/niri";
+    #     Restart = "on-failure";
+    #     RestartSec = 5;
+    #     Environment = "XDG_RUNTIME_DIR=/run/user/%U";
+    #     StandardInput = "tty";
+    #     StandardOutput = "journal";
+    #     StandardError = "journal";
+    #   };
+    # };
   };
 }

@@ -17,11 +17,11 @@
   boot.kernelParams = [
     # "vt.global_cursor_default=0"  # Hide TTY cursor
     # "plymouth.enable=0"           # Disable Plymouth splash (often causes double cursor in VMs)
-    "loglevel=3"                  # Reduce boot noise
-    "amd_pstate=active"
-    "fs.inotify.max_user_watches=524288"
-    "snd_hda_intel.dmic_detect=0"
-    "usbcore.autosuspend=-1"
+    # "loglevel=3"                  # Reduce boot noise
+    # "amd_pstate=active"
+    # "fs.inotify.max_user_watches=524288"
+    # "snd_hda_intel.dmic_detect=0"
+    # "usbcore.autosuspend=-1"
   ];
   fileSystems."/mnt/data" = {
     device = "/dev/disk/by-uuid/0574158e-46bd-43a8-bd49-8e75304ce6f3";
@@ -32,8 +32,8 @@
       "x-systemd.automount"
     ];
   };
-  hardware.enableRedistributableFirmware = true;
-  hardware.cpu.amd.updateMicrocode = true;
+  # hardware.enableRedistributableFirmware = true;
+  # hardware.cpu.amd.updateMicrocode = true;
   networking.hostName = "nixos";
   # networking.wireless.enable = true;
   networking.networkmanager.enable = true;
