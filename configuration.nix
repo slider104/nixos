@@ -60,8 +60,7 @@
       common.default = "wlr";
     };
   };
-  # services.gvfs.enable = true;
-  services.udisks2.enable = true;
+  services.gvfs.enable = true;
   services.xserver.enable = false;
   services.xserver.xkb = {
     layout = "de";
