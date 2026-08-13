@@ -6,7 +6,7 @@ let
     pkgs.bat
     pkgs.bottom
     pkgs.fresh-editor
-    pkgs.mediawriter
+    pkgs.lufus
     pkgs.nil
     pkgs.seahorse
     pkgs.shortwave
