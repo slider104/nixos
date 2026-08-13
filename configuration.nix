@@ -66,7 +66,7 @@
     layout = "de";
     variant = "";
   };
-  services.polkit.enable = true;
+  security.polkit.enable = true;
   console.keyMap = "de";
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
