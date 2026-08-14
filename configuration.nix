@@ -51,6 +51,15 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
+  programs.dconf.enable = true;
+  programs.dconf.profiles.user.databases = [
+    {
+      lockAll = true;
+      settings."org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    }
+  ];
   xdg.portal = {
     enable = true;
     extraPortals = [
