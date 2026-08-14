@@ -88,6 +88,7 @@
         "git"
         "input"
         "networkmanager"
+        "render"
         "video"
         "wheel"
       ];
