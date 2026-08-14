@@ -41,7 +41,7 @@ in
     ${myModuleName}.packages = myModulePackages;
     systemd.tmpfiles.rules = flatRules;
 
-    systemd.user.services.${myModuleName} = {
+    systemd.services.${myModuleName} = {
       enable = true;
       description = "A scrollable-tiling Wayland compositor";
       after = [ "graphical-session-pre.target" ];
