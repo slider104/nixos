@@ -43,16 +43,22 @@ in
 
     systemd.services.${myModuleName} = {
       enable = true;
-      description = "A scrollable-tiling Wayland compositor";
-      after = [ "graphical-session-pre.target" ];
-      before = [ "graphical-session.target" ];
-      wantedBy = [ "graphical-session.target" ];
-
+      after = [
+        "display-manager.service"
+        "systemd-user-sessions.service"
+      ];
+      wants = [ "display-manager.service" ];
       serviceConfig = {
         Type = "simple";
+        User = "${username}";
         ExecStart = "${pkgs.niri}/bin/niri";
         Restart = "on-failure";
         RestartSec = 5;
+        Environment = [
+          "XDG_RUNTIME_DIR=/run/user/1000"
+          "PATH=/run/current-system/sw/bin"
+          "RUST_BACKTRACE=full"
+        ];
         StandardInput = "tty";
         StandardOutput = "journal";
         StandardError = "journal";
