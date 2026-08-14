@@ -21,7 +21,7 @@
     # "amd_pstate=active"
     # "fs.inotify.max_user_watches=524288"
     # "snd_hda_intel.dmic_detect=0"
-    # "usbcore.autosuspend=-1"
+    "usbcore.autosuspend=-1"
   ];
   fileSystems."/mnt/data" = {
     device = "/dev/disk/by-uuid/0574158e-46bd-43a8-bd49-8e75304ce6f3";
