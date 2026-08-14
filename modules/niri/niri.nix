@@ -43,7 +43,12 @@ in
 
     systemd.services.${myModuleName} = {
       enable = true;
-      after = [ "display-manager.service" "systemd-user-sessions.service" ];
+      after = [
+        "display-manager.service"
+        "systemd-user-sessions.service"
+        "sys-subsystem-pci-devices-0000:03:00.0.device"
+        "sys-subsystem-pci-devices-0000:73:00.0.device"
+      ];
       wants = [ "display-manager.service" ];
       serviceConfig = {
         Type = "simple";
