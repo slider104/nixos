@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./hardware-configuration.nix
     ./modules/bash/bash.nix
     ./modules/fuzzel/fuzzel.nix
     ./modules/gaming/gaming.nix
