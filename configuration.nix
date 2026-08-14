@@ -21,7 +21,7 @@
     # "amd_pstate=active"
     # "fs.inotify.max_user_watches=524288"
     # "snd_hda_intel.dmic_detect=0"
-    "amdgpu.gpu_recovery=1"
+    # "amdgpu.gpu_recovery=1"
     "usbcore.autosuspend=-1"
   ];
   fileSystems."/mnt/data" = {
