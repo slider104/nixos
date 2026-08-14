@@ -46,17 +46,22 @@ in
       after = [
         "display-manager.service"
         "systemd-user-sessions.service"
-        "sys-subsystem-pci-devices-0000:03:00.0.device"
-        "sys-subsystem-pci-devices-0000:73:00.0.device"
       ];
       wants = [ "display-manager.service" ];
       serviceConfig = {
         Type = "simple";
         User = "${username}";
+        ExecStartPre = [
+          "${pkgs.coreutils}/bin/sleep 1"
+          "${pkgs.systemd}/bin/udevadm settle --timeout=30"
+        ];
         ExecStart = "${pkgs.niri}/bin/niri";
         Restart = "on-failure";
         RestartSec = 5;
-        Environment = "XDG_RUNTIME_DIR=/run/user/1000";
+        Environment = [
+          "XDG_RUNTIME_DIR=/run/user/1000"
+          "PATH=/run/current-system/sw/bin"
+        ];
         StandardInput = "tty";
         StandardOutput = "journal";
         StandardError = "journal";
