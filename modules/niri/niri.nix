@@ -41,7 +41,7 @@ in
     ${myModuleName}.packages = myModulePackages;
     systemd.tmpfiles.rules = flatRules;
 
-    programs.niri.enable = true;
+    programs.${myModuleName}.enable = true;
     # systemd.services.${myModuleName} = {
     #   enable = true;
     #   after = [
