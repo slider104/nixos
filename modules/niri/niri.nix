@@ -42,13 +42,13 @@ in
     systemd.tmpfiles.rules = flatRules;
 
     programs.${myModuleName}.enable = true;
-    # systemd.services.${myModuleName} = {
+    systemd.services.${myModuleName} = {
     #   enable = true;
-    #   after = [
-    #     "display-manager.service"
-    #     "systemd-user-sessions.service"
-    #     "sound.target"
-    #   ];
+      after = [
+        "display-manager.service"
+        "systemd-user-sessions.service"
+        "sound.target"
+      ];
     #   wants = [ "display-manager.service" ];
     #   serviceConfig = {
     #     Type = "simple";
@@ -69,6 +69,6 @@ in
     #     PrivateDevices = false;
     #     DevicePolicy = "auto";
     #   };
-    # };
+    };
   };
 }
