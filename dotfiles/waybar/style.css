@@ -1,164 +1,110 @@
-/* Base Settings */
 * {
-    font-family: 'JetBrainsMono Nerd Font Mono';
-    font-weight: bold;
-    font-size: 13px;
-    background: transparent;
-    border: none;
-    color: #cdd6f4;
+  all: unset;
+  font-family: "JetBrainsMono Nerd Font Mono", monospace;
+  font-size: 11px;
+  font-weight: bold;
+  color: #ffffff;
 }
 
-/* Window Title (Center) */
-#window {
-    background: transparent;
-    color: #7fc8ff;
-    padding: 0 10px;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+window#waybar {
+  background: transparent;
+  color: #ffffff;
 }
 
-/* --- LEFT ISLAND ELEMENTS --- */
+/* Left island */
+#custom-launcher,
+#wlr-workspaces,
+#cpu,
+#memory,
+#custom-gpu {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 4px 8px;
+  margin: 0;
+  border-radius: 4px;
+}
+
 #custom-launcher {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 6px 10px;
-    margin: 2px;
-    border-radius: 4px;
-    color: #cdd6f4;
-    transition: background 0.2s ease;
+  margin-left: 2px;
+  margin-right: 0;
 }
 
-#workspaces {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 6px 10px;
-    margin: 2px;
-    border-radius: 4px;
-    color: #cdd6f4;
-    transition: background 0.2s ease;
+#custom-gpu {
+  margin-right: 2px;
 }
 
-#custom-resource1 {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 6px 10px;
-    margin: 2px;
-    border-radius: 4px;
-    color: #cdd6f4;
-    transition: background 0.2s ease;
+/* Center - active window */
+#window {
+  background: transparent;
+  padding: 0 16px;
+  color: #7fc8ff;
 }
 
-/* --- RIGHT ISLAND ELEMENTS --- */
-#custom-resource2 {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 6px 10px;
-    margin: 2px;
-    border-radius: 4px;
-    color: #cdd6f4;
-    transition: background 0.2s ease;
+/* Right island */
+#pulseaudio,
+#backlight,
+#custom-weather,
+#clock,
+#power-profiles-daemon,
+#custom-power {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 4px 8px;
+  margin: 0;
+  border-radius: 4px;
 }
 
-#tray {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 6px 10px;
-    margin: 2px;
-    border-radius: 4px;
-    color: #cdd6f4;
-    transition: background 0.2s ease;
+#pulseaudio {
+  margin-left: 2px;
+  margin-right: 0;
 }
 
-#custom-launcher-right {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 6px 10px;
-    margin: 2px;
-    border-radius: 4px;
-    color: #7fc8ff;
-    transition: background 0.2s ease;
+#custom-power {
+  margin-right: 2px;
 }
 
-#custom-weather {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 6px 10px;
-    margin: 2px;
-    border-radius: 4px;
-    color: #7fc8ff;
-    transition: background 0.2s ease;
+/* Workspaces styling */
+#wlr-workspaces button {
+  padding: 0 6px;
+  color: #ffffff;
+  transition: all 0.3s ease;
 }
 
-#custom-brightness {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 6px 10px;
-    margin: 2px;
-    border-radius: 4px;
-    color: #cdd6f4;
-    transition: background 0.2s ease;
+#wlr-workspaces button:hover {
+  color: #7fc8ff;
+  text-shadow: 0 0 10px rgba(127, 200, 255, 0.5);
 }
 
-#custom-volume {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 6px 10px;
-    margin: 2px;
-    border-radius: 4px;
-    color: #cdd6f4;
-    transition: background 0.2s ease;
+#wlr-workspaces button.active {
+  color: #7fc8ff;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(127, 200, 255, 0.8);
 }
 
-#custom-time {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 6px 10px;
-    margin: 2px;
-    border-radius: 4px;
-    color: #7fc8ff;
-    transition: background 0.2s ease;
-}
-
-/* Hover Effects */
+/* Hover effects for all modules */
 #custom-launcher:hover,
-#workspaces:hover,
-#custom-resource1:hover,
-#custom-resource2:hover,
-#custom-launcher-right:hover,
+#cpu:hover,
+#memory:hover,
+#custom-gpu:hover,
+#pulseaudio:hover,
+#backlight:hover,
 #custom-weather:hover,
-#custom-brightness:hover,
-#custom-volume:hover,
-#custom-time:hover,
-#tray:hover {
-    background: rgba(127, 200, 255, 0.3);
-    color: #ffffff;
+#clock:hover,
+#power-profiles-daemon:hover,
+#custom-power:hover {
+  color: #7fc8ff;
+  text-shadow: 0 0 8px rgba(127, 200, 255, 0.4);
+  transition: all 0.2s ease;
 }
 
-/* Workspaces Specifics */
-#workspaces button {
-    padding: 0;
-    margin: 0 2px;
-    border-radius: 4px;
-}
-#workspaces button.active {
-    color: #7fc8ff;
-    background: rgba(127, 200, 255, 0.2);
-}
-
-/* System Resources (Smaller padding for density) */
-#custom-resource1,
-#custom-resource2 {
-    font-size: 12px;
-    padding: 4px 8px;
-}
-
-/* Tray Icons */
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #7fc8ff;
-    border-radius: 4px;
-    padding: 2px 6px;
-    color: #000;
-}
-
-/* Tooltip Styling */
+/* Tooltip styling */
 tooltip {
-    background: rgba(0, 0, 0, 0.9);
-    border: 1px solid #7fc8ff;
-    border-radius: 8px;
-    color: #cdd6f4;
-    padding: 10px;
-    margin: 5px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #7fc8ff;
+  border-radius: 4px;
+  padding: 6px 10px;
+  color: #7fc8ff;
+  font-size: 10px;
+}
+
+tooltip label {
+  color: #7fc8ff;
 }

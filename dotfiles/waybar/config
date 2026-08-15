@@ -1,120 +1,115 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 48,
-  "modules-left": ["custom-launcher", "custom-separator1", "workspaces", "custom-separator2", "custom-resource1"],
-  "modules-center": ["window"],
-  "modules-right": ["custom-resource2", "custom-separator3", "tray", "custom-separator4", "custom-launcher-right"],
+  "height": 32,
+  "spacing": 0,
+  "margin-top": 2,
+  "margin-left": 2,
+  "margin-right": 2,
+  "margin-bottom": 0,
 
-  "custom-launcher": {
-    "format": "",
-    "tooltip": true,
-    "tooltip-text": "App Launcher",
-    "on-click": "wofi --show drun"
+  "modules-left": ["custom/launcher", "wlr/workspaces", "cpu", "memory", "custom/gpu"],
+  "modules-center": ["wlr/window"],
+  "modules-right": ["pulseaudio", "backlight", "custom/weather", "clock", "power-profiles-daemon", "custom/power"],
+
+  "wlr/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "all-outputs": false,
+    "sort-by-number": true
   },
 
-  "custom-launcher-right": {
-    "format": "",
-    "tooltip": true,
-    "tooltip-text": "Power Options",
-    "on-click": "wofi --show power",
-    "class": "power-btn"
-  },
-
-  "custom-separator1": {
-    "format": "",
+  "custom/launcher": {
+    "format": "󰣇",
+    "on-click": "wofi --show drun",
     "tooltip": false
   },
 
-  "custom-separator2": {
-    "format": "",
-    "tooltip": false
-  },
-
-  "custom-resource1": {
-    "format": "{}",
+  "cpu": {
+    "format": "{usage}% 󰻠",
+    "interval": 2,
     "tooltip": true,
-    "tooltip-text": "System Resources",
-    "exec": "gpu-usage-waybar --cpu --ram --gpu",
-    "interval": 5,
-    "on-click": "termite -e htop",
-    "class": "resources-left"
+    "tooltip-format": "CPU: {usage}%"
   },
 
-  "custom-resource2": {
-    "format": "{}",
+  "memory": {
+    "format": "{percentage}% 󰍛",
+    "interval": 2,
     "tooltip": true,
-    "tooltip-text": "System Resources",
-    "exec": "gpu-usage-waybar --cpu --ram --gpu",
-    "interval": 5,
-    "on-click": "termite -e htop",
-    "class": "resources-right"
+    "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G"
   },
 
-  "workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "1": "1", "2": "2", "3": "3", "4": "4", "5": "5", "6": "6", "7": "7", "8": "8", "9": "9", "10": "10"
-    },
-    "format-active": "<span color='#7fc8ff'>{} </span>",
-    "format-active-background": "#2b2b2b",
-    "format-active-padding": "4px 8px",
-    "format-active-border-radius": "4px",
-    "format-occupied": "{}",
-    "format-occupied-padding": "4px 8px",
-    "format-occupied-border-radius": "4px",
-    "format-empty": "",
-    "format-empty-padding": "4px 8px",
-    "format-empty-border-radius": "4px"
+  "custom/gpu": {
+    "exec": "gpu-usage-waybar",
+    "format": "{} 󰢮",
+    "interval": 2,
+    "tooltip": true,
+    "tooltip-format": "GPU: {}"
   },
 
-  "window": {
+  "wlr/window": {
     "format": "{}",
     "max-length": 50,
-    "tooltip": true,
-    "tooltip-format": "Full Title: {title}"
+    "separate-outputs": true
   },
 
-  "tray": {
-    "icon-size": 18,
-    "spacing": 10,
-    "tooltip": true
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": "0% 󰝟",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋋",
+      "headset": "󰋋",
+      "phone": "󰏲",
+      "portable": "󰏲",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "scroll-step": 5,
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%"
   },
 
-  "custom-weather": {
-    "format": " {}°C",
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-",
     "tooltip": true,
-    "tooltip-text": "Weather in Gütersloh, Germany",
-    "exec": "curl -s 'wttr.in/Gütersloh?format=%t+%c' | sed 's/+/ /g'",
+    "tooltip-format": "Brightness: {percent}%"
+  },
+
+  "custom/weather": {
+    "exec": "curl -s 'https://wttr.in/Gütersloh?format=3'",
     "interval": 600,
-    "class": "weather"
+    "format": "{}",
+    "tooltip": true,
+    "tooltip-format": "{}"
   },
 
-  "custom-brightness": {
-    "format": " {}",
+  "clock": {
+    "format": "{:%a %d.%m.%y %H:%M}",
     "tooltip": true,
-    "tooltip-text": "Display Brightness: {}",
-    "exec": "brightnessctl info | grep -oP '\\(\\K\\d+(?=\\%)'",
-    "interval": 10,
-    "on-scroll-up": "brightnessctl set 1%+",
-    "on-scroll-down": "brightnessctl set 1%-"
+    "tooltip-format": "{:%A, %d %B %Y\n%H:%M:%S}"
   },
 
-  "custom-volume": {
-    "format": " {}",
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "format-icons": {
+      "performance": "󰓅",
+      "balanced": "⚖",
+      "power-saver": "🔋"
+    },
     "tooltip": true,
-    "tooltip-text": "Master Volume: {}",
-    "exec": "pactl get-sink-mute @DEFAULT_SINK@ && echo 'Muted' || pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'",
-    "interval": 5,
-    "on-click": "pavucontrol"
+    "tooltip-format": "Power Profile: {profile}"
   },
 
-  "custom-time": {
-    "format": " {time}",
+  "custom/power": {
+    "format": "󰐥",
     "tooltip": true,
-    "tooltip-text": "Date: {date} Time: {time}",
-    "format-alt": " {date}",
-    "interval": 60,
-    "format-time": "%a %d.%m.%y %H:%M"
+    "tooltip-format": "Power Menu",
+    "on-click": "bash ~/.config/waybar/scripts/power-menu.sh"
   }
 }
