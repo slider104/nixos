@@ -1,104 +1,118 @@
+/* Base Settings */
 * {
-    font-family: "JetBrainsMono Nerd Font Mono";
+    font-family: 'JetBrainsMono Nerd Font Mono';
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px; /* Slightly smaller for a thinner look */
+    background: transparent;
     border: none;
-    border-radius: 0;
-    min-height: 0;
+    color: #cdd6f4; /* Soft white/off-white */
 }
 
-/* Main Bar Background - Transparent to see wallpaper */
-window#waybar {
+/* Window Title (Center) */
+#window {
     background: transparent;
-    color: #ffffff;
-}
-
-/* The "Island" Containers */
-/* We apply the black background and rounding to the modules themselves */
-#custom-launcher,
-#niri-workspaces,
-#cpu,
-#memory,
-#custom-gpu,
-#custom-power,
-#pulseaudio,
-#backlight,
-#custom-weather,
-#clock,
-#custom-separator {
-    background-color: #000000;
-    padding: 2px 8px;
-    margin: 2px 0px; /* 2px free around buttons as requested */
-    border-radius: 4px;
-    color: #ffffff;
-}
-
-/* Accent Color for specific active states or hover */
-#custom-launcher:hover,
-#niri-workspaces button.active,
-#cpu:hover,
-#memory:hover,
-#custom-gpu:hover,
-#pulseaudio:hover,
-#backlight:hover,
-#custom-weather:hover,
-#clock:hover {
-    color: #7fc8ff;
-    background-color: #1a1a1a; /* Slightly lighter black on hover */
-}
-
-/* Separator Style */
-#custom-separator {
-    padding: 2px 4px;
-    color: #555555;
-    background-color: transparent; /* Make separator invisible or keep black if preferred */
-    /* If you want the '|' to be inside the black island, keep background-color: #000000; */
-    /* If you want it floating between islands, set background to transparent and adjust margins */
-}
-
-/* Center Window Title - Fully Transparent */
-#niri-window {
-    background: transparent;
-    color: #ffffff;
+    color: #7fc8ff; /* Accent color */
     padding: 0 10px;
-    margin: 2px 0;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Workspace Buttons Specifics */
-#niri-workspaces button {
-    padding: 2px 8px;
-    margin: 2px 0;
-    background-color: #000000;
+/* --- THE ISLANDS (Left & Right) --- */
+/*
+   These selectors group all modules inside the left and right sections.
+   They apply the 0.8 black background, 4px radius, and 2px spacing.
+*/
+
+/* Left Island Modules */
+#custom/launcher,
+#workspaces,
+#custom/resource1,
+#custom/separator1,
+#custom/separator2 {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 6px 10px; /* Adjusted padding for thinner height */
+    margin: 2px; /* **2px spacing** around the island */
     border-radius: 4px;
+    color: #cdd6f4;
+    transition: background 0.2s ease;
+}
+
+/* Right Island Modules */
+#custom/resource2,
+#tray,
+#custom/launcher-right,
+#custom/separator3,
+#custom/separator4,
+#custom/weather,
+#custom/brightness,
+#custom/volume,
+#custom/time {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 6px 10px; /* Adjusted padding for thinner height */
+    margin: 2px; /* **2px spacing** around the island */
+    border-radius: 4px;
+    color: #cdd6f4;
+    transition: background 0.2s ease;
+}
+
+/* Hover Effects */
+#custom/launcher:hover,
+#workspaces:hover,
+#custom/resource1:hover,
+#custom/resource2:hover,
+#custom/launcher-right:hover,
+#custom/brightness:hover,
+#custom/volume:hover,
+#custom/time:hover,
+#custom/weather:hover,
+#tray:hover {
+    background: rgba(127, 200, 255, 0.3); /* Accent color overlay */
     color: #ffffff;
 }
 
-#niri-workspaces button.active {
+/* Workspaces Specifics */
+#workspaces button {
+    padding: 0;
+    margin: 0 2px;
+    border-radius: 4px;
+}
+#workspaces button.active {
     color: #7fc8ff;
-    background-color: #1a1a1a;
+    background: rgba(127, 200, 255, 0.2);
 }
 
-#niri-workspaces button:hover {
+/* Power Button Specifics */
+#custom/launcher-right {
     color: #7fc8ff;
 }
 
-/* Power Button Special Styling */
-#custom-power {
-    color: #ff5555; /* Red hint for power */
+/* System Resources */
+#custom/resource1,
+#custom/resource2 {
+    font-size: 12px; /* Smaller font for density */
+    padding: 4px 8px; /* Tighter padding */
 }
-#custom-power:hover {
-    color: #ffffff;
-    background-color: #ff5555; /* Full red on hover */
+
+/* Tray Icons */
+#tray {
+    padding: 6px 10px;
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #7fc8ff;
+    border-radius: 4px;
+    padding: 2px 6px;
+    color: #000;
 }
 
 /* Tooltip Styling */
 tooltip {
-    background: #000000;
+    background: rgba(0, 0, 0, 0.9);
     border: 1px solid #7fc8ff;
-    border-radius: 4px;
-    padding: 5px;
-}
-tooltip label {
-    color: #ffffff;
-    font-weight: normal;
+    border-radius: 8px;
+    color: #cdd6f4;
+    padding: 10px;
+    margin: 5px;
 }
