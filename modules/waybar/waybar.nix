@@ -14,6 +14,7 @@ let
   myConfigFiles = [
     { source = ../../dotfiles/waybar/config; target = "config"; }
     { source = ../../dotfiles/waybar/style.css; target = "style.css"; }
+    { source = ../../dotfiles/waybar/scripts/power-menu.sh; target = "scripts/power-menu.sh"; }
   ];
 
   username = config.users.users.slider.name;
