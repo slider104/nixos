@@ -2,18 +2,18 @@
   "layer": "top",
   "position": "top",
   "height": 48,
-  "modules-left": ["custom/launcher", "custom/separator1", "workspaces", "custom/separator2", "custom/resource1"],
+  "modules-left": ["custom-launcher", "custom-separator1", "workspaces", "custom-separator2", "custom-resource1"],
   "modules-center": ["window"],
-  "modules-right": ["custom/resource2", "custom/separator3", "tray", "custom/separator4", "custom/launcher-right"],
+  "modules-right": ["custom-resource2", "custom-separator3", "tray", "custom-separator4", "custom-launcher-right"],
 
-  "custom/launcher": {
+  "custom-launcher": {
     "format": "",
     "tooltip": true,
     "tooltip-text": "App Launcher",
     "on-click": "wofi --show drun"
   },
 
-  "custom/launcher-right": {
+  "custom-launcher-right": {
     "format": "",
     "tooltip": true,
     "tooltip-text": "Power Options",
@@ -21,18 +21,18 @@
     "class": "power-btn"
   },
 
-  "custom/separator1": {
+  "custom-separator1": {
     "format": "",
     "tooltip": false
   },
 
-  "custom/separator2": {
+  "custom-separator2": {
     "format": "",
     "tooltip": false
   },
 
-  "custom/resource1": {
-    "format": "CPU: {} | GPU: {} | RAM: {}",
+  "custom-resource1": {
+    "format": "{}",
     "tooltip": true,
     "tooltip-text": "System Resources",
     "exec": "gpu-usage-waybar --cpu --ram --gpu",
@@ -41,8 +41,8 @@
     "class": "resources-left"
   },
 
-  "custom/resource2": {
-    "format": "GPU: {} | RAM: {} | CPU: {}",
+  "custom-resource2": {
+    "format": "{}",
     "tooltip": true,
     "tooltip-text": "System Resources",
     "exec": "gpu-usage-waybar --cpu --ram --gpu",
@@ -81,7 +81,7 @@
     "tooltip": true
   },
 
-  "custom/weather": {
+  "custom-weather": {
     "format": " {}°C",
     "tooltip": true,
     "tooltip-text": "Weather in Gütersloh, Germany",
@@ -90,7 +90,7 @@
     "class": "weather"
   },
 
-  "custom/brightness": {
+  "custom-brightness": {
     "format": " {}",
     "tooltip": true,
     "tooltip-text": "Display Brightness: {}",
@@ -100,7 +100,7 @@
     "on-scroll-down": "brightnessctl set 1%-"
   },
 
-  "custom/volume": {
+  "custom-volume": {
     "format": " {}",
     "tooltip": true,
     "tooltip-text": "Master Volume: {}",
@@ -109,7 +109,7 @@
     "on-click": "pavucontrol"
   },
 
-  "custom/time": {
+  "custom-time": {
     "format": " {time}",
     "tooltip": true,
     "tooltip-text": "Date: {date} Time: {time}",
