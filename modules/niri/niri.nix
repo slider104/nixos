@@ -49,7 +49,7 @@ in
         "systemd-user-sessions.service"
         "sound.target"
       ];
-    #   wants = [ "display-manager.service" ];
+      wants = [ "display-manager.service" ];
     #   serviceConfig = {
     #     Type = "simple";
     #     User = "${username}";
