@@ -85,7 +85,7 @@
     "format": " {}°C",
     "tooltip": true,
     "tooltip-text": "Weather in Gütersloh, Germany",
-    "exec": "curl -s 'https://api.openweathermap.org/data/2.5/weather?id=2911271&appid=YOUR_API_KEY&units=metric' | jq -r '.main.temp'",
+    "exec": "curl -s 'wttr.in/Gütersloh?format=%t+%c' | sed 's/+/ /g'",
     "interval": 600,
     "class": "weather"
   },
