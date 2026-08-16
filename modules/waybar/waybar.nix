@@ -38,5 +38,12 @@ in
   config = lib.mkIf config.${myModuleName}.enable {
     ${myModuleName}.packages = myModulePackages;
     systemd.tmpfiles.rules = flatRules;
+
+    systemd.user.services.${myModuleName} = {
+      serviceConfig = {
+        ExecStart = "${pkgs.waybar}/bin/waybar -c ${userHome}/${myConfigDir}/config -s ${userHome}/${myConfigDir}/style.css";
+        Restart = "on-failure";
+      };
+    };
   };
 }
