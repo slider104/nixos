@@ -50,7 +50,7 @@
   },
 
   "niri/workspaces": {
-    "format": "{icon}",
+    "format": "{}",
     "format-icons": {
       "default": {
         "1": "➀",
