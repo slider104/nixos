@@ -50,7 +50,32 @@
   },
 
   "niri/workspaces": {
-    "format": "{name}",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "➀",
+      "2": "➁",
+      "3": "➂",
+      "4": "➃",
+      "5": "➄",
+      "6": "➅",
+      "7": "➆",
+      "8": "➇",
+      "9": "➈",
+      "10": "➉"
+    },
+    "active-format": "{icon}",
+    "active-format-icons": {
+      "1": "➊",
+      "2": "➋",
+      "3": "➌",
+      "4": "➍",
+      "5": "➎",
+      "6": "➏",
+      "7": "➐",
+      "8": "➑",
+      "9": "➒",
+      "10": "➓"
+    },
     "on-click": "activate",
     "all-outputs": false,
     "active-only": false,
