@@ -24,7 +24,7 @@ let
 
   rules = lib.map (file: [
     "d ${userHome}/${myConfigDir} 0755 ${username} ${userGroup} -"
-    "L+ ${userHome}/${myConfigDir}/${file.target} - - - - ${file.source}"
+    "L+ ${userHome}/${myConfigDir}/${file.target} 0755 ${username} ${userGroup} ${file.source}"
   ]) myConfigFiles;
   flatRules = lib.flatten rules;
 in

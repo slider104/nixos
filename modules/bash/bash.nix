@@ -35,6 +35,6 @@ in
     ${myModuleName}.packages = myModulePackages;
     programs.bash.enable = true;
     environment.etc."profile.d/01-system-aliases.sh".text = aliasScript;
-    environment.etc."profile.d/01-system-aliases.sh".mode = "0755";
+    environment.etc."profile.d/01-system-aliases.sh".mode = "0755 slider users";
   };
 }
