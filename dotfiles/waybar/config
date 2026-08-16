@@ -52,8 +52,8 @@
   "niri/workspaces": {
     "format": "{}",
     "format-icons": {
-      "default": "{number}",
-      "active": "{number}"
+      "default": "◯",
+      "active": "●"
     },
     "on-click": "activate",
     "all-outputs": false,
