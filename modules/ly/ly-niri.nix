@@ -45,15 +45,15 @@ in
       sessionPackages = [ pkgs.niri ];
     };
 
-    systemd.services.display-manager.after = [
-      "sound.target"
-      "sys-subsystem-pci-devices-0000:03:00.0.device"
-      "sys-subsystem-pci-devices-0000:73:00.0.device"
-    ];
+    # systemd.services.display-manager.after = [
+    #   "sound.target"
+    #   "sys-subsystem-pci-devices-0000:03:00.0.device"
+    #   "sys-subsystem-pci-devices-0000:73:00.0.device"
+    # ];
 
-    systemd.services.display-manager.wants = [
-      "sound.target"
-    ];
+    # systemd.services.display-manager.wants = [
+    #   "sound.target"
+    # ];
 
     # systemd.user.services.polkit-gnome-authentication-agent-1 = {
     #   enable = true;

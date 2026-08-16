@@ -45,11 +45,15 @@ in
     systemd.services.${myModuleName} = {
     #   enable = true;
       after = [
-        "display-manager.service"
-        "systemd-user-sessions.service"
-        "sound.target"
+        "graphical-session-pre.target"
+    #     "display-manager.service"
+    #     "systemd-user-sessions.service"
+    #     "sound.target"
       ];
-      wants = [ "display-manager.service" ];
+      ExecStartPre = [
+        "${pkgs.bash}/bin/bash -c 'until [ -e /dev/dri/renderD128 ]; do sleep 0.1; done'"
+      ];
+    #   wants = [ "display-manager.service" ];
     #   serviceConfig = {
     #     Type = "simple";
     #     User = "${username}";
