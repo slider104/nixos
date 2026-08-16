@@ -80,44 +80,37 @@ window#waybar > box {
 
 /* System info icons */
 #cpu {
-  content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
 
 #memory {
-  content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
 
 #custom-gpu {
-  content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
 
 /* Right side icons */
 #pulseaudio {
-  content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
 
 #backlight {
-  content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
 
 #custom-weather {
-  content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
 
 #clock {
-  content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
