@@ -65,7 +65,7 @@ window#waybar > box {
 /* Workspaces */
 #niri-workspaces button {
   background-color: rgba(0, 0, 0, 0.8);
-  color: #7fc8ff;
+  color: #808080;
   padding: 0 6px;
   border-radius: 2px;
   margin: 0 2px;
@@ -80,7 +80,8 @@ window#waybar > box {
 #niri-workspaces button.active {
     background-color: rgba(0, 0, 0, 0.8);
     color: #7fc8ff;
-    text-underline-position: auto;
+    border-bottom: 2px solid #7fc8ff;
+    padding-bottom: 2px;
 }
 
 /* System info icons */
