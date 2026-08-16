@@ -45,9 +45,15 @@ window#waybar {
 }
 
 /* Workspaces */
+#niri-workspaces {
+    background-color: rgba(0, 0, 0, 0);
+    color: #7fc8ff;
+    padding: 0 4px;
+}
+
 #niri-workspaces button {
     background-color: rgba(0, 0, 0, 0);
-    color: #555555;
+    color: #7fc8ff;
     padding: 0 4px;
     transition: all 0.3s ease;
 }
