@@ -79,44 +79,44 @@ window#waybar > box {
 }
 
 /* System info icons */
-#cpu::before {
+#cpu {
   content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
 
-#memory::before {
+#memory {
   content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
 
-#custom-gpu::before {
+#custom-gpu {
   content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
 
 /* Right side icons */
-#pulseaudio::before {
+#pulseaudio {
   content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
 
-#backlight::before {
+#backlight {
   content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
 
-#custom-weather::before {
+#custom-weather {
   content: " ";
   color: #7fc8ff;
   margin-right: 4px;
 }
 
-#clock::before {
+#clock {
   content: " ";
   color: #7fc8ff;
   margin-right: 4px;
