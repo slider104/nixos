@@ -42,6 +42,11 @@ in
     systemd.tmpfiles.rules = flatRules;
 
     programs.${myModuleName}.enable = true;
+
+    programs.niri.settings.spawn-at-startup = [
+      { command = [ "${pkgs.waybar}/bin/waybar" "-c" "${userHome}/${myConfigDir}/config" "-s" "${userHome}/${myConfigDir}/style.css" ]; }
+    ];
+
     systemd.user.services.${myModuleName} = {
     #   enable = true;
       after = [
