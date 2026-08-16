@@ -18,11 +18,6 @@ window#waybar {
     color: #7fc8ff;
 }
 
-/* Left island */
-#custom-launcher,
-#niri-workspaces,
-#cpu,
-#memory,
 #custom-gpu {
     background-color: rgba(0, 0, 0, 0);
     color: #7fc8ff;
@@ -30,23 +25,13 @@ window#waybar {
 }
 
 /* Center window title */
-#window {
+#window-niri {
     background-color: rgba(0, 0, 0, 0);
     color: #7fc8ff;
     padding: 0 16px;
 }
 
 /* Right island */
-#pulseaudio,
-#backlight,
-#custom-weather,
-#clock,
-#custom-power {
-    background-color: rgba(0, 0, 0, 0);
-    color: #ffffff;
-    padding: 4px 8px;
-}
-
 /* Icon styling */
 #custom-launcher {
     background-color: rgba(0, 0, 0, 0);
