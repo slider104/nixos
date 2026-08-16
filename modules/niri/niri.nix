@@ -45,7 +45,7 @@ in
       enable = true;
       settings = {
         spawn-at-startup = [
-          { command = [ "${pkgs.waybar}/bin/waybar" "-c" "${userHome}/${myConfigDir}/config" "-s" "${userHome}/${myConfigDir}/style.css" ]; }
+          { command = [ "${pkgs.waybar}/bin/waybar" "-c" "${userHome}/nixos/dotfiles/waybar/config" "-s" "${userHome}/nixos/dotfiles/waybar/style.css" ]; }
         ];
       };
     };
