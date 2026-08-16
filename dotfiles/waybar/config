@@ -24,7 +24,6 @@
   },
 
   "niri/workspaces": {
-    "format": "{name}",
     "on-click": "activate",
     "all-outputs": true,
     "active-only": false,
