@@ -1,8 +1,8 @@
 * {
     font-family: "JetBrainsMono Nerd Font Mono", monospace;
-    font-weight: 900;
+    font-weight: 500;
     font-size: 16px;
-    color: #7fc8ff;
+    color: #CCCCCC;
     border: none;
     border-radius: 0;
     min-height: 0;
@@ -16,19 +16,19 @@
 
 window#waybar {
     background-color: rgba(0, 0, 0, 0.5);
-    color: #7fc8ff;
+    color: #CCCCCC;
 }
 
 #custom-gpu {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #CCCCCC;
     padding: 4px 8px;
 }
 
 /* Center window title */
 #niri-window {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #CCCCCC;
     padding: 0 16px;
 }
 
@@ -37,7 +37,7 @@ window#waybar {
 #custom-launcher {
     background-color: rgba(0, 0, 0, 0);
     padding: 4px 12px;
-    color: #7fc8ff;
+    color: #CCCCCC;
 }
 
 #custom-launcher:hover {
@@ -47,63 +47,62 @@ window#waybar {
 /* Workspaces */
 #niri-workspaces {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #CCCCCC;
     padding: 0 2px;
 }
 
 #niri-workspaces button {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #CCCCCC;
     transition: all 0.3s ease;
 }
 
 #niri-workspaces button:hover {
     background-color: rgba(127, 200, 255, 0.15);
-    color: #7fc8ff;
+    color: #CCCCCC;
 }
 
 #niri-workspaces button.active {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #CCCCCC;
 }
 
 /* System info icons */
 #cpu {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #CCCCCC;
 }
 
 #memory {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #CCCCCC;
 }
 
 /* Right side icons */
 #pulseaudio {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #CCCCCC;
 }
 
 #backlight {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #CCCCCC;
 }
 
 #custom-weather {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #CCCCCC;
 }
 
 #clock {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #CCCCCC;
 }
 
 #custom-power {
     background-color: rgba(0, 0, 0, 0);
     color: #FF0000;
     padding: 4px 12px;
-    font-weight: 500;
 }
 
 #custom-power:hover {
@@ -119,5 +118,5 @@ window#waybar {
 #custom-weather:hover,
 #clock:hover {
     background-color: rgba(127, 200, 255, 0.15);
-    color: #7fc8ff;
+    color: #CCCCCC;
 }
