@@ -8,9 +8,34 @@
   "margin-right": 0,
   "margin-bottom": 0,
 
-  "modules-left": ["custom/launcher", "niri/workspaces", "cpu", "memory", "custom/gpu"],
+  "modules-left": [
+    "custom/launcher",
+    "custom/separator",
+    "niri/workspaces",
+    "custom/separator",
+    "cpu",
+    "custom/separator",
+    "memory",
+    "custom/separator",
+    "custom/gpu"
+  ],
   "modules-center": ["niri/window"],
-  "modules-right": ["pulseaudio", "backlight", "custom/weather", "clock", "custom/power"],
+  "modules-right": [
+    "pulseaudio",
+    "custom/separator",
+    "backlight",
+    "custom/separator",
+    "custom/weather",
+    "custom/separator",
+    "clock",
+    "custom/separator",
+    "custom/power"
+  ],
+
+  "custom/separator": {
+    "format": "|",
+    "tooltip": false
+  }
 
   "niri/window": {
     "format": "{}",

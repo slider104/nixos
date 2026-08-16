@@ -2,18 +2,19 @@
   font-family: "JetBrainsMono Nerd Font Mono", monospace;
   font-weight: 900;
   font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
   border-radius: 0;
   min-height: 0;
 }
 
-window#waybar {
-  background-color: rgba(0, 0, 0, 0);
-  color: #ffffff;
+#custom-separator {
+    padding: 2px 4px;
+    color: #555555;
 }
 
-window#waybar > box {
-  background-color: rgba(0, 0, 0, 0);
+window#waybar {
+  color: #7fc8ff;
 }
 
 /* Left island */
@@ -22,14 +23,12 @@ window#waybar > box {
 #cpu,
 #memory,
 #custom-gpu {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
+  color: #7fc8ff;
   padding: 4px 8px;
 }
 
 /* Center window title */
 #window {
-  background-color: rgba(0, 0, 0, 0);
   color: #7fc8ff;
   padding: 0 16px;
 }
@@ -40,7 +39,6 @@ window#waybar > box {
 #custom-weather,
 #clock,
 #custom-power {
-  background-color: rgba(0, 0, 0, 0.8);
   color: #ffffff;
   padding: 4px 8px;
 }
@@ -59,7 +57,6 @@ window#waybar > box {
 
 /* Workspaces */
 #niri-workspaces button {
-  background-color: rgba(0, 0, 0, 0.8);
   color: #808080;
   padding: 0 6px;
   transition: all 0.3s ease;
@@ -71,7 +68,6 @@ window#waybar > box {
 }
 
 #niri-workspaces button.active {
-    background-color: rgba(0, 0, 0, 0.8);
     color: #7fc8ff;
     text-decoration: underline;
 }
