@@ -25,7 +25,7 @@ window#waybar {
 }
 
 /* Center window title */
-#window-niri {
+#niri-window {
     background-color: rgba(0, 0, 0, 0);
     color: #7fc8ff;
     padding: 0 16px;
@@ -37,7 +37,6 @@ window#waybar {
     background-color: rgba(0, 0, 0, 0);
     padding: 4px 12px;
     color: #7fc8ff;
-    font-size: 18px;
     font-weight: 500;
 }
 
@@ -47,7 +46,7 @@ window#waybar {
 
 /* Workspaces */
 #niri-workspaces button {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0);
     color: #808080;
     padding: 0 6px;
     transition: all 0.3s ease;
@@ -61,7 +60,7 @@ window#waybar {
 #niri-workspaces button.active {
     background-color: rgba(0, 0, 0, 0);
     color: #7fc8ff;
-    text-decoration: underline;
+    border-bottom: 2px solid #7fc8ff;
 }
 
 /* System info icons */
@@ -105,7 +104,6 @@ window#waybar {
     background-color: rgba(0, 0, 0, 0);
     color: #FF0000;
     padding: 4px 12px;
-    font-size: 18px;
     font-weight: 500;
 }
 

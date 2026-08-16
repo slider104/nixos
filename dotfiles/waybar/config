@@ -1,4 +1,5 @@
 {
+  "style": "style.css"
   "layer": "top",
   "position": "top",
   "height": 30,
@@ -51,7 +52,7 @@
   "niri/workspaces": {
     "format": "{}",
     "on-click": "activate",
-    "all-outputs": true,
+    "all-outputs": false,
     "active-only": false,
     "sort-by-number": true
   },
