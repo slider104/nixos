@@ -4,10 +4,10 @@ choice=$(printf "Shutdown\nReboot\nSuspend\nLogout" | wofi --dmenu -p "Power:" -
 
 case "$choice" in
   Shutdown)
-    systemctl poweroff
+    pkexec systemctl poweroff
     ;;
   Reboot)
-    systemctl reboot
+    pkexec systemctl reboot
     ;;
   Suspend)
     systemctl suspend

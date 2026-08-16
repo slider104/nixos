@@ -38,7 +38,6 @@ window#waybar {
     background-color: rgba(0, 0, 0, 0);
     padding: 4px 12px;
     color: #7fc8ff;
-    font-weight: 500;
 }
 
 #custom-launcher:hover {
@@ -49,14 +48,12 @@ window#waybar {
 #niri-workspaces {
     background-color: rgba(0, 0, 0, 0);
     color: #7fc8ff;
-    padding: 0 4px;
-    opacity: 1;
+    padding: 0 2px;
 }
 
 #niri-workspaces button {
     background-color: rgba(0, 0, 0, 0);
     color: #7fc8ff;
-    padding: 0 4px;
     transition: all 0.3s ease;
 }
 
@@ -68,7 +65,6 @@ window#waybar {
 #niri-workspaces button.active {
     background-color: rgba(0, 0, 0, 0);
     color: #7fc8ff;
-    border-bottom: 2px solid #7fc8ff;
 }
 
 /* System info icons */

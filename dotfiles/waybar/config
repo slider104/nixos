@@ -44,7 +44,7 @@
   },
 
   "custom/launcher": {
-    "format": "❄",
+    "format": "▢",
     "on-click": "wofi --show drun",
     "tooltip": false
   },
@@ -132,7 +132,7 @@
   "custom/power": {
     "format": "⏻",
     "tooltip": true,
-    "tooltip-format": "Click for power menu",
+    "tooltip-format": "Power Menu",
     "on-click": "~/.config/waybar/scripts/power-menu.sh"
   }
 }
