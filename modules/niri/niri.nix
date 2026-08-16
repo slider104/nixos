@@ -50,7 +50,7 @@ in
     #     "systemd-user-sessions.service"
     #     "sound.target"
       ];
-      ExecStartPre = [
+      preStart = [
         "${pkgs.bash}/bin/bash -c 'until [ -e /dev/dri/renderD128 ]; do sleep 0.1; done'"
       ];
     #   wants = [ "display-manager.service" ];
