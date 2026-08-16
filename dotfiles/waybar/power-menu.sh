@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-choice=$(printf "Shutdown\nReboot\nSuspend\nLogout" | wofi --dmenu -p "Power:" -W 150 -H 120)
+choice=$(printf "Shutdown\nReboot\nSuspend\nLogout" | wofi --dmenu -p "ESC to close" -W 200 -H 300)
 
 case "$choice" in
   Shutdown)
