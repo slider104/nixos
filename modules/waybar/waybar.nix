@@ -50,8 +50,7 @@ in
         ExecStart = "${pkgs.waybar}/bin/waybar -c ${userHome}/${myConfigDir}/config -s ${userHome}/${myConfigDir}/style.css";
         Restart = "on-failure";
       };
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
+      WantedBy = [ "graphical-session.target" ];
       };
     };
   };
