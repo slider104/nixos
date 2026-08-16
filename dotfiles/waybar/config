@@ -2,103 +2,98 @@
   "layer": "top",
   "position": "top",
   "height": 30,
-  "margin-top": 4,
-  "margin-left": 4,
-  "margin-right": 4,
-  "spacing": 4,
-  "modules-left": [
-    "custom/launcher",
-    "niri/workspaces",
-    "custom/separator",
-    "cpu",
-    "custom/separator",
-    "memory",
-    "custom/separator",
-    "custom/gpu"
-  ],
-  "modules-center": [
-    "niri/window"
-  ],
-  "modules-right": [
-    "custom/power",
-    "custom/separator",
-    "pulseaudio",
-    "custom/separator",
-    "backlight",
-    "custom/separator",
-    "custom/weather",
-    "custom/separator",
-    "clock"
-  ],
+  "spacing": 2,
+  "margin-top": 2,
+  "margin-left": 2,
+  "margin-right": 2,
+  "margin-bottom": 2,
+
+  "modules-left": ["custom/launcher", "niri/workspaces", "cpu", "memory", "custom/gpu"],
+  "modules-center": ["niri/window"],
+  "modules-right": ["pulseaudio", "backlight", "custom/weather", "clock", "custom/power"],
+
+  "niri/window": {
+    "format": "{}",
+    "max-length": 100
+  },
+
   "custom/launcher": {
-    "format": "",
+    "format": "",
     "on-click": "wofi --show drun",
     "tooltip": false
   },
+
   "niri/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "active": "",
-      "default": ""
-    },
-    "on-click": "activate"
+    "format": "{name}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "active-only": false,
+    "sort-by-number": true
   },
-  "custom/separator": {
-    "format": "|",
-    "tooltip": false
-  },
+
   "cpu": {
-    "format": " {usage}%",
-    "interval": 5
+    "interval": 2,
+    "format": "{usage}%",
+    "tooltip": true,
+    "tooltip-format": "CPU: {usage}%"
   },
+
   "memory": {
-    "format": " {percentage}%",
-    "interval": 5
+    "interval": 2,
+    "format": "{percentage}%",
+    "tooltip": true,
+    "tooltip-format": "Memory: {used:0.1f}GB / {total:0.1f}GB\n({percentage}%)"
   },
+
   "custom/gpu": {
-    "format": " {}",
     "exec": "gpu-usage-waybar",
-    "interval": 5,
-    "return-type": "json"
+    "format": "{}%",
+    "interval": 2,
+    "tooltip": true,
+    "tooltip-format": "GPU Usage: {}%"
   },
-  "niri/window": {
-    "format": "{}",
-    "max-length": 50,
-    "tooltip": false
-  },
-  "custom/power": {
-    "format": "",
-    "on-click": "wofi --show run -p 'Power' -d 'Shutdown:shutdown now\\nReboot:reboot'",
-    "tooltip-format": "Click for Power Options"
-  },
+
   "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-icons": {
-      "default": ["", "", ""]
-    },
-    "on-click": "pavucontrol"
+    "format": "{volume}%",
+    "format-muted": "0%",
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%"
   },
+
   "backlight": {
-    "format": "{icon} {percent}%",
-    "format-icons": ["", ""],
-    "on-click": "brightnessctl set 10%+",
-    "on-click-right": "brightnessctl set 10%-"
+    "device": "intel_backlight",
+    "format": "{percent}%",
+    "on-click": "brightnessctl set 50%",
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "tooltip": true,
+    "tooltip-format": "Brightness: {percent}%"
   },
+
   "custom/weather": {
-    "format": " {}",
-    "exec": "curl -s 'wttr.in/Gütersloh?format=%t+%c' | sed 's/+/ /g'",
+    "exec": "curl -s 'https://wttr.in/Gütersloh?format=3' | cut -d' ' -f1-2",
     "interval": 600,
-    "tooltip": true
+    "format": "{}",
+    "tooltip": true,
+    "tooltip-format": "Weather: Gütersloh, Germany",
+    "on-click": "xdg-open 'https://wttr.in/Gütersloh'"
   },
+
   "clock": {
     "format": "{:%a %d.%m.%y %H:%M}",
     "tooltip": true,
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "mode": "year",
-      "mode-mon-col": 3,
-      "weeks-pos": "right",
-      "on-scroll": 1
-    }
+    "tooltip-format": "{:%A, %B %d, %Y\n%H:%M:%S}",
+    "interval": 1
+  },
+
+  "custom/power": {
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "Click for power menu",
+    "on-click": "~/.config/waybar/scripts/power-menu.sh"
   }
 }
