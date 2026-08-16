@@ -53,7 +53,7 @@
     "format": "{}",
     "format-icons": {
       "default": "{}",
-      "active": "{}",
+      "active": "{}"
     },
     "on-click": "activate",
     "all-outputs": false,
