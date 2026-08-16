@@ -1,7 +1,7 @@
 * {
   font-family: "JetBrainsMono Nerd Font Mono", monospace;
   font-weight: 900;
-  font-size: 14px;
+  font-size: 16px;
   border: none;
   border-radius: 0;
   min-height: 0;
@@ -25,8 +25,6 @@ window#waybar > box {
   background-color: rgba(0, 0, 0, 0.8);
   color: #ffffff;
   padding: 4px 8px;
-  border-radius: 4px;
-  margin: 0 2px;
 }
 
 /* Center window title */
@@ -34,7 +32,6 @@ window#waybar > box {
   background-color: rgba(0, 0, 0, 0);
   color: #7fc8ff;
   padding: 0 16px;
-  border-radius: 0;
 }
 
 /* Right island */
@@ -46,15 +43,13 @@ window#waybar > box {
   background-color: rgba(0, 0, 0, 0.8);
   color: #ffffff;
   padding: 4px 8px;
-  border-radius: 4px;
-  margin: 0 2px;
 }
 
 /* Icon styling */
 #custom-launcher {
   padding: 4px 12px;
   color: #7fc8ff;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -67,8 +62,6 @@ window#waybar > box {
   background-color: rgba(0, 0, 0, 0.8);
   color: #808080;
   padding: 0 6px;
-  border-radius: 2px;
-  margin: 0 2px;
   transition: all 0.3s ease;
 }
 
@@ -80,51 +73,43 @@ window#waybar > box {
 #niri-workspaces button.active {
     background-color: rgba(0, 0, 0, 0.8);
     color: #7fc8ff;
-    border-bottom: 2px solid #7fc8ff;
-    padding-bottom: 2px;
+    text-decoration: underline;
 }
 
 /* System info icons */
 #cpu {
   color: #7fc8ff;
-  margin-right: 4px;
 }
 
 #memory {
   color: #7fc8ff;
-  margin-right: 4px;
 }
 
 #custom-gpu {
   color: #7fc8ff;
-  margin-right: 4px;
 }
 
 /* Right side icons */
 #pulseaudio {
   color: #7fc8ff;
-  margin-right: 4px;
 }
 
 #backlight {
   color: #7fc8ff;
-  margin-right: 4px;
 }
 
 #custom-weather {
   color: #7fc8ff;
-  margin-right: 4px;
 }
 
 #clock {
   color: #7fc8ff;
-  margin-right: 4px;
 }
 
 #custom-power {
   color: #FF0000;
   padding: 4px 12px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
 }
 
