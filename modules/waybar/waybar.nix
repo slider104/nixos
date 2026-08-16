@@ -15,6 +15,7 @@ let
     { source = ../../dotfiles/waybar/config; target = "config"; }
     { source = ../../dotfiles/waybar/style.css; target = "style.css"; }
     { source = ../../dotfiles/waybar/power-menu.sh; target = "power-menu.sh"; }
+    { source = ../../dotfiles/waybar/start-waybar.sh; target = "start-waybar.sh"; }
   ];
 
   username = config.users.users.slider.name;
