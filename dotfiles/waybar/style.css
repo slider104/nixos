@@ -56,7 +56,6 @@ window#waybar > box {
 
 #custom-launcher:hover {
   background-color: rgba(127, 200, 255, 0.15);
-  cursor: pointer;
 }
 
 /* Workspaces */
@@ -131,7 +130,6 @@ window#waybar > box {
 
 #custom-power:hover {
   background-color: rgba(127, 200, 255, 0.15);
-  cursor: pointer;
 }
 
 /* Hover effects for all modules */
@@ -144,5 +142,4 @@ window#waybar > box {
 #clock:hover {
   background-color: rgba(127, 200, 255, 0.15);
   color: #7fc8ff;
-  cursor: pointer;
 }
