@@ -133,6 +133,6 @@
     "format": "⏻",
     "tooltip": true,
     "tooltip-format": "Power Menu",
-    "on-click": "/home/slider/.config/waybar/scripts/power-menu.sh"
+    "on-click": "/home/slider/nixos/dotfiles/waybar/scripts/power-menu.sh"
   }
 }
