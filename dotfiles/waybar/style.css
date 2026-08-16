@@ -47,19 +47,19 @@ window#waybar {
 /* Workspaces */
 #niri-workspaces button {
     background-color: rgba(0, 0, 0, 0);
-    color: #808080;
-    padding: 0 6px;
+    color: #7fc8ff !important;
+    padding: 0 4px;
     transition: all 0.3s ease;
 }
 
 #niri-workspaces button:hover {
     background-color: rgba(127, 200, 255, 0.15);
-    color: #7fc8ff;
+    color: #7fc8ff !important;
 }
 
 #niri-workspaces button.active {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #7fc8ff !important;
     border-bottom: 2px solid #7fc8ff;
 }
 
@@ -70,11 +70,6 @@ window#waybar {
 }
 
 #memory {
-    background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
-}
-
-#custom-gpu {
     background-color: rgba(0, 0, 0, 0);
     color: #7fc8ff;
 }
