@@ -43,12 +43,8 @@ in
 
     programs.${myModuleName} = {
       enable = true;
-      settings = {
-        spawn-at-startup = [
-          { command = [ "${pkgs.waybar}/bin/waybar" "-c" "${userHome}/nixos/dotfiles/waybar/config" "-s" "${userHome}/nixos/dotfiles/waybar/style.css" ]; }
-        ];
-      };
     };
+
     systemd.user.services.${myModuleName} = {
     #   enable = true;
       after = [
