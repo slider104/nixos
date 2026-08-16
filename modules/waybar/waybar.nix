@@ -41,14 +41,14 @@ in
 
     systemd.user.services.waybar = {
       Description = "Waybar";
-      After = [ "graphical-session-pre.target" ];
-      PartOf = [ "graphical-session.target" ];
+      after = [ "graphical-session-pre.target" ];
+      partOf = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.waybar}/bin/waybar -c ${userHome}/${myConfigDir}/config -s ${userHome}/${myConfigDir}/style.css";
         Restart = "on-failure";
       };
-      WantedBy = [ "graphical-session.target" ];
+      wantedBy = [ "graphical-session.target" ];
     };
   };
 }
