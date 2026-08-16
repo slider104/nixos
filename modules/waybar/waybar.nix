@@ -40,18 +40,15 @@ in
     systemd.tmpfiles.rules = flatRules;
 
     systemd.user.services.waybar = {
-      Unit = {
-        Description = "Waybar";
-        After = [ "graphical-session-pre.target" ];
-        PartOf = [ "graphical-session.target" ];
-      };
+      Description = "Waybar";
+      After = [ "graphical-session-pre.target" ];
+      PartOf = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.waybar}/bin/waybar -c ${userHome}/${myConfigDir}/config -s ${userHome}/${myConfigDir}/style.css";
         Restart = "on-failure";
       };
       WantedBy = [ "graphical-session.target" ];
-      };
     };
   };
 }
