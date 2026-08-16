@@ -47,7 +47,7 @@ window#waybar {
 /* Workspaces */
 #niri-workspaces button {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff;
+    color: #555555;
     padding: 0 4px;
     transition: all 0.3s ease;
 }
