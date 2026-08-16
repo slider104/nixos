@@ -47,19 +47,19 @@ window#waybar {
 /* Workspaces */
 #niri-workspaces button {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff !important;
+    color: #7fc8ff;
     padding: 0 4px;
     transition: all 0.3s ease;
 }
 
 #niri-workspaces button:hover {
     background-color: rgba(127, 200, 255, 0.15);
-    color: #7fc8ff !important;
+    color: #7fc8ff;
 }
 
 #niri-workspaces button.active {
     background-color: rgba(0, 0, 0, 0);
-    color: #7fc8ff !important;
+    color: #7fc8ff;
     border-bottom: 2px solid #7fc8ff;
 }
 
