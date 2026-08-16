@@ -42,7 +42,7 @@ in
     systemd.tmpfiles.rules = flatRules;
 
     programs.${myModuleName}.enable = true;
-    systemd.services.${myModuleName} = {
+    systemd.user.services.${myModuleName} = {
     #   enable = true;
       after = [
         "graphical-session-pre.target"
