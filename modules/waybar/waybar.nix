@@ -12,10 +12,10 @@ let
 
   myConfigDir = ".config/waybar";
   myConfigFiles = [
-    { source = ../../dotfiles/waybar/config; target = "config"; }
-    { source = ../../dotfiles/waybar/style.css; target = "style.css"; }
-    { source = ../../dotfiles/waybar/power-menu.sh; target = "power-menu.sh"; }
-    { source = ../../dotfiles/waybar/start-waybar.sh; target = "start-waybar.sh"; }
+    { source = ../../dotfiles/waybar/config; target = "config"; perms = "0777";}
+    { source = ../../dotfiles/waybar/style.css; target = "style.css"; perms = "0777";}
+    { source = ../../dotfiles/waybar/power-menu.sh; target = "power-menu.sh"; perms = "0777";}
+    { source = ../../dotfiles/waybar/start-waybar.sh; target = "start-waybar.sh"; perms = "0777";}
   ];
 
   username = config.users.users.slider.name;
@@ -23,9 +23,10 @@ let
   userHome = config.users.users.slider.home;
 
   rules = lib.map (file: [
-    "d ${userHome}/${myConfigDir} 0755 ${username} ${userGroup} -"
-    "L+ ${userHome}/${myConfigDir}/${file.target} 0755 ${username} ${userGroup} ${file.source}"
+    "d ${userHome}/${myConfigDir} 0777 ${username} ${userGroup} -"
+    "L+ ${userHome}/${myConfigDir}/${file.target} ${file.perms} ${username} ${userGroup} ${file.source}"
   ]) myConfigFiles;
+
   flatRules = lib.flatten rules;
 in
 {

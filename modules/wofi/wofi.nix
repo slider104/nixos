@@ -10,8 +10,8 @@ let
 
   myConfigDir = ".config/wofi";
   myConfigFiles = [
-    { source = ../../dotfiles/wofi/config; target = "config"; }
-    { source = ../../dotfiles/wofi/style.css; target = "style.css"; }
+    { source = ../../dotfiles/wofi/config; target = "config"; perms = "0777"; }
+    { source = ../../dotfiles/wofi/style.css; target = "style.css"; perms = "0777"; }
   ];
 
   username = config.users.users.slider.name;
@@ -19,9 +19,10 @@ let
   userHome = config.users.users.slider.home;
 
   rules = lib.map (file: [
-    "d ${userHome}/${myConfigDir} 0755 ${username} ${userGroup} -"
-    "L+ ${userHome}/${myConfigDir}/${file.target} 0755 ${username} ${userGroup} ${file.source}"
+    "d ${userHome}/${myConfigDir} 0777 ${username} ${userGroup} -"
+    "L+ ${userHome}/${myConfigDir}/${file.target} ${file.perms} ${username} ${userGroup} ${file.source}"
   ]) myConfigFiles;
+
   flatRules = lib.flatten rules;
 in
 {

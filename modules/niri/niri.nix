@@ -23,9 +23,10 @@ let
   userHome = config.users.users.slider.home;
 
   rules = lib.map (file: [
-    "d ${userHome}/${myConfigDir} 0755 ${username} ${userGroup} -"
-    "L+ ${userHome}/${myConfigDir}/${file.target} 0755 ${username} ${userGroup} ${file.source}"
+    "d ${userHome}/${myConfigDir} 0777 ${username} ${userGroup} -"
+    "L+ ${userHome}/${myConfigDir}/${file.target} ${file.perms} ${username} ${userGroup} ${file.source}"
   ]) myConfigFiles;
+
   flatRules = lib.flatten rules;
 in
 {
