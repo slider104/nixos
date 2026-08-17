@@ -13,21 +13,24 @@ let
     pkgs.xwayland-satellite
   ];
 
-  myConfigDir = ".config/niri";
-  myConfigFiles = [
-    { source = ../../dotfiles/niri/config.kdl; target = "config.kdl"; perms = "0777";}
+  # Dotfiles configuration
+  dotfilesDir = "/home/slider/nixos/dotfiles";
+  configDir = ".config/niri";
+
+  dotfiles = [
+    {
+      source = "${dotfilesDir}/niri/config.kdl";
+      target = "config.kdl";
+      mode = "0644";
+    }
+
   ];
 
-  username = config.users.users.slider.name;
-  userGroup = config.users.users.slider.group;
-  userHome = config.users.users.slider.home;
+  # User info
+  username = "slider";
+  userGroup = "users";
+  userHome = "/home/${username}";
 
-  rules = lib.map (file: [
-    "d ${userHome}/${myConfigDir} 0777 ${username} ${userGroup} -"
-    "C+ ${userHome}/${myConfigDir}/${file.target} ${file.perms} ${username} ${userGroup} ${file.source}"
-  ]) myConfigFiles;
-
-  flatRules = lib.flatten rules;
 in
 {
   options.${myModuleName} = {
@@ -40,8 +43,15 @@ in
 
   config = lib.mkIf config.${myModuleName}.enable {
     ${myModuleName}.packages = myModulePackages;
-    systemd.tmpfiles.rules = flatRules;
 
+    system.activationScripts."${myModuleName}-dotfiles" = ''
+      mkdir -p ${userHome}/${configDir}
+      ${lib.concatMapStrings (file: ''
+        cp ${file.source} ${userHome}/${configDir}/${file.target}
+        chmod ${file.mode} ${userHome}/${configDir}/${file.target}
+        chown ${username}:${userGroup} ${userHome}/${configDir}/${file.target}
+      '') dotfiles}
+    '';
     programs.${myModuleName} = {
       enable = true;
     };

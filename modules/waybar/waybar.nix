@@ -10,24 +10,39 @@ let
     pkgs.waybar
   ];
 
-  myConfigDir = ".config/waybar";
-  myConfigFiles = [
-    { source = ../../dotfiles/waybar/config; target = "config"; perms = "0777";}
-    { source = ../../dotfiles/waybar/style.css; target = "style.css"; perms = "0777";}
-    { source = ../../dotfiles/waybar/power-menu.sh; target = "power-menu.sh"; perms = "0777";}
-    { source = ../../dotfiles/waybar/start-waybar.sh; target = "start-waybar.sh"; perms = "0777";}
+  # Dotfiles configuration
+  dotfilesDir = "/home/slider/nixos/dotfiles";
+  configDir = ".config/waybar";
+
+  dotfiles = [
+    {
+      source = "${dotfilesDir}/waybar/config";
+      target = "config";
+      mode = "0644";
+    }
+    {
+      source = "${dotfilesDir}/waybar/style.css";
+      target = "style.css";
+      mode = "0644";
+    }
+    {
+      source = "${dotfilesDir}/waybar/power-menu.sh";
+      target = "power-menu.sh";
+      mode = "0644";
+    }
+    {
+      source = "${dotfilesDir}/waybar/start-waybar.sh";
+      target = "start-waybar.sh";
+      mode = "0644";
+    }
+
   ];
 
-  username = config.users.users.slider.name;
-  userGroup = config.users.users.slider.group;
-  userHome = config.users.users.slider.home;
+  # User info
+  username = "slider";
+  userGroup = "users";
+  userHome = "/home/${username}";
 
-  rules = lib.map (file: [
-    "d ${userHome}/${myConfigDir} 0777 ${username} ${userGroup} -"
-    "C+ ${userHome}/${myConfigDir}/${file.target} ${file.perms} ${username} ${userGroup} ${file.source}"
-  ]) myConfigFiles;
-
-  flatRules = lib.flatten rules;
 in
 {
   options.${myModuleName} = {
@@ -40,6 +55,14 @@ in
 
   config = lib.mkIf config.${myModuleName}.enable {
     ${myModuleName}.packages = myModulePackages;
-    systemd.tmpfiles.rules = flatRules;
+
+    system.activationScripts."${myModuleName}-dotfiles" = ''
+      mkdir -p ${userHome}/${configDir}
+      ${lib.concatMapStrings (file: ''
+        cp ${file.source} ${userHome}/${configDir}/${file.target}
+        chmod ${file.mode} ${userHome}/${configDir}/${file.target}
+        chown ${username}:${userGroup} ${userHome}/${configDir}/${file.target}
+      '') dotfiles}
+    '';
   };
 }

@@ -3,24 +3,24 @@
 let
   myModuleName = "zed-editor";
   myModulePackages = [
-    pkgs."zed-editor"
+    pkgs.zed-editor
   ];
 
-  myConfigDir = ".config/zed";
-  myConfigFiles = [
-    { source = ../../dotfiles/zed/settings.json; target = "settings.json"; perms = "0777";}
+  dotfilesDir = "/home/slider/nixos/dotfiles";
+  configDir = ".config/zed";
+
+  dotfiles = [
+    {
+      source = "${dotfilesDir}/zed/settings.json";
+      target = "settings.json";
+      mode = "0644";
+    }
   ];
 
-  username = config.users.users.slider.name;
-  userGroup = config.users.users.slider.group;
-  userHome = config.users.users.slider.home;
+  username = "slider";
+  userGroup = "users";
+  userHome = "/home/${username}";
 
-  rules = lib.map (file: [
-    "d ${userHome}/${myConfigDir} 0777 ${username} ${userGroup} -"
-    "C+ ${userHome}/${myConfigDir}/${file.target} ${file.perms} ${username} ${userGroup} ${file.source}"
-  ]) myConfigFiles;
-
-  flatRules = lib.flatten rules;
 in
 {
   options.${myModuleName} = {
@@ -33,6 +33,14 @@ in
 
   config = lib.mkIf config.${myModuleName}.enable {
     ${myModuleName}.packages = myModulePackages;
-    systemd.tmpfiles.rules = flatRules;
+
+    system.activationScripts."${myModuleName}-dotfiles" = ''
+      mkdir -p ${userHome}/${configDir}
+      ${lib.concatMapStrings (file: ''
+        cp ${file.source} ${userHome}/${configDir}/${file.target}
+        chmod ${file.mode} ${userHome}/${configDir}/${file.target}
+        chown ${username}:${userGroup} ${userHome}/${configDir}/${file.target}
+      '') dotfiles}
+    '';
   };
 }

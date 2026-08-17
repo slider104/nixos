@@ -6,7 +6,6 @@ let
     pkgs.fuzzel
   ];
 
-  # Dotfiles configuration
   dotfilesDir = "/home/slider/nixos/dotfiles";
   configDir = ".config/fuzzel";
 
@@ -18,7 +17,6 @@ let
     }
   ];
 
-  # User info
   username = "slider";
   userGroup = "users";
   userHome = "/home/${username}";
