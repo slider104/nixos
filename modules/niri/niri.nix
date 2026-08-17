@@ -15,7 +15,7 @@ let
 
   myConfigDir = ".config/niri";
   myConfigFiles = [
-    { source = ../../dotfiles/niri/config.kdl; target = "config.kdl"; }
+    { source = ../../dotfiles/niri/config.kdl; target = "config.kdl"; perms = "0777";}
   ];
 
   username = config.users.users.slider.name;
