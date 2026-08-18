@@ -1,6 +1,6 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
-choice=$(printf "Shutdown\nReboot\nSuspend\nLogout" | wofi --dmenu -p "ESC to close" -W 200 -H 300)
+choice=$(printf "Shutdown\nReboot\nSuspend\nLogout" | fuzzel --dmenu -p "ESC to close" --width=20 --lines=4)
 
 case "$choice" in
   Shutdown)
@@ -13,6 +13,6 @@ case "$choice" in
     systemctl suspend
     ;;
   Logout)
-    loginctl terminate-user $USER
+    loginctl terminate-user "$USER"
     ;;
 esac
