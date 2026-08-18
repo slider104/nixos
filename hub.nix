@@ -22,7 +22,7 @@
   my-pkgs.enable = true;
   niri.enable = true;
   waybar.enable = true;
-  wofi.enable = true;
+  wofi.enable = false;
   zed-editor.enable = true;
 
   # --- MERGE BLOCK ---
