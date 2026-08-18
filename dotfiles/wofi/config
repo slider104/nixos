@@ -3,5 +3,6 @@ font=JetBrains Mono 18
 width=30%
 height=50%
 show-icons=true
+allow-images=true
 pango-markup=true
 prompt=>
