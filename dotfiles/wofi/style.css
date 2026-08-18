@@ -1,56 +1,58 @@
-style {
-    window {
-        background-color: rgba(0, 0, 0, 0.8);
-        border: 1px solid #333333;
-        border-radius: 4px;
-        margin: 0px;
-    }
-    #input {
-        color: #7fc8ff;
-        background-color: transparent;
-        border: none;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 18px;
-        padding: 10px;
-        margin-bottom: 5px;
-    }
-    #inner-box {
-        margin: 10px;
-        background-color: transparent;
-    }
-    #outer-box {
-        margin: 0px;
-        background-color: transparent;
-    }
-    #scroll {
-        margin: 0px;
-        background-color: transparent;
-    }
-    #text {
-        color: rgba(127, 200, 255, 0.6);
-        background-color: transparent;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 18px;
-        padding: 6px 10px;
-    }
-    #text:selected {
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 20%, rgba(127, 200, 255, 0.15) 100%);
-        background-color: transparent;
-        color: #7fc8ff;
-        border-left: 3px solid #7fc8ff;
-        padding-left: 7px;
-        font-weight: normal;
-    }
-    #text image {
-        margin-right: 12px;
-        background-color: transparent;
-    }
-    #match {
-        color: #7fc8ff;
-        background-color: transparent;
-    }
-    #placeholder {
-        color: rgba(127, 200, 255, 0.3);
-        background-color: transparent;
-    }
+/* Main window */
+window {
+    margin: 0px;
+    border: 1px solid #555555;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #CCCCCC;
+    font-family: "JetBrainsMono Nerd Font Mono", monospace;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Input field */
+#input {
+    margin: 10px;
+    padding: 4px 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #CCCCCC;
+    border: none;
+    border-radius: 0;
+}
+
+#input:focus {
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* The list of entries */
+#inner-box {
+    margin: 5px;
+}
+
+#outer-box {
+    margin: 5px;
+}
+
+/* Selected entry */
+#select {
+    background-color: rgba(127, 200, 255, 0.15);
+    color: #CCCCCC;
+}
+
+/* Entry text */
+#text {
+    padding: 4px 8px;
+    color: #CCCCCC;
+}
+
+/* Hover effect */
+#text:hover {
+    background-color: rgba(127, 200, 255, 0.15);
+    color: #CCCCCC;
+}
+
+/* Scrollbar styling (optional, for consistency) */
+#scroll {
+    border: none;
 }
