@@ -1,10 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  # --- CONFIGURATION BLOCK ---
   myModuleName = "gaming";
-
-  # Packages to install
   myModulePackages = [
     # Primary Launchers
     pkgs.steam
@@ -26,7 +23,6 @@ let
   ];
 in
 {
-  # --- DEFINE OPTIONS ---
   options.${myModuleName} = {
     enable = lib.mkEnableOption "${myModuleName}";
     packages = lib.mkOption {
@@ -35,19 +31,15 @@ in
     };
   };
 
-  # --- APPLY LOGIC ---
   config = lib.mkIf config.${myModuleName}.enable {
 
-    # Set the packages variable (for the merge in config.nix)
     ${myModuleName}.packages = myModulePackages;
 
-    # Enable System-Wide Graphics
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
     };
 
-    # Enable Steam
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -57,13 +49,11 @@ in
       gamescopeSession.enable = false; # Steam Deck session
     };
 
-    # Enable Gamemode
     programs.gamemode = {
       enable = true;
       enableRenice = true;
     };
 
-    # Enable Gamescope
     programs.gamescope = {
       enable = true;
       capSysNice = true;
