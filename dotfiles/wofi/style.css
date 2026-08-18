@@ -36,8 +36,8 @@ window {
 
 /* Selected entry */
 #select {
-    background-color: rgba(127, 200, 255, 0.15);
-    color: #CCCCCC;
+    /* background-color: rgba(127, 200, 255, 0.15); */
+    color: #000000;
 }
 
 /* Entry text */
