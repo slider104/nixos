@@ -8,12 +8,12 @@ let
     pkgs.prismlauncher
     # pkgs.heroic
     # pkgs.lutris
-    pkgs.protonup-qt
 
     # Utilities
-    pkgs.mangohud
     pkgs.gamescope
     pkgs.gamemode
+    pkgs.mangohud
+    pkgs.protonup-qt
     pkgs.winetricks
 
     # Emulation
