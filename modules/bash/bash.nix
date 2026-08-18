@@ -5,7 +5,7 @@ let
     nitch
   ];
   aliasScript = ''
-    #!/usr/bin/env bash
+    #! /usr/bin/env bash
     # Aliases
     alias cat='bat'
     alias ll='ls -la'
@@ -33,8 +33,16 @@ in
 
   config = lib.mkIf config.${myModuleName}.enable {
     ${myModuleName}.packages = myModulePackages;
-    programs.bash.enable = true;
-    environment.etc."profile.d/01-system-aliases.sh".text = aliasScript;
-    environment.etc."profile.d/01-system-aliases.sh".mode = "0755 slider users";
+
+    programs.bash = {
+      enable = true;
+      interactiveShellInit = aliasScript;
+    };
+    environment.etc."profile.d/01-system-aliases.sh" = {
+      text = aliasScript;
+      mode = "0755";
+      user = "slider";
+      group = "users";
+    };
   };
 }
