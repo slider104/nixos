@@ -10,6 +10,7 @@ let
     alias cat='bat'
     alias ll='ls -la'
     alias nrs='sudo nixos-rebuild switch --flake ~/nixos#nixos'
+    alias nrb='sudo nixos-rebuild boot --flake ~/nixos#nixos'
     alias nck='cd ~/nixos && nix flake check && cd -'
     alias ncg='cd ~/nixos && sudo nix-collect-garbage --delete-older-than 30d && cd -'
     alias nup='cd ~/nixos && nix flake update && git add . && git commit -m "system update" && sudo nixos-rebuild boot --flake . && cd -'
