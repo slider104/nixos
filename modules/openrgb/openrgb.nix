@@ -43,11 +43,13 @@ in
     system.activationScripts."${myModuleName}-dotfiles" = ''
       mkdir -p ${userHome}/${configDir}
       mkdir -p ${userHome}/${configDir}/logs
+      mkdir -p ${userHome}/${configDir}/plugins
       ${lib.concatMapStrings (file: ''
         cp ${file.source} ${userHome}/${configDir}/${file.target}
         chmod ${file.mode} ${userHome}/${configDir}/${file.target}
         chown ${username}:${userGroup} ${userHome}/${configDir}/${file.target}
         chown ${username}:${userGroup} ${userHome}/${configDir}/logs
+        chown ${username}:${userGroup} ${userHome}/${configDir}/plugins
       '') dotfiles}
     '';
 
