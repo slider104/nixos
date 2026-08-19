@@ -6,6 +6,7 @@ let
     pkgs.bat
     pkgs.bottom
     pkgs.fresh-editor
+    pkgs.gnome-themes-extra
     pkgs.libreoffice
     pkgs.lufus
     pkgs.mediawriter
