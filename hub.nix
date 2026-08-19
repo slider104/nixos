@@ -6,6 +6,7 @@
     ./modules/gaming/gaming.nix
     ./modules/git/git.nix
     ./modules/ly/ly-niri.nix
+    ./modules/nemo/nemo.nix
     ./modules/niri/niri.nix
     ./modules/openrgb/openrgb.nix
     ./modules/waybar/waybar.nix
@@ -21,6 +22,7 @@
   git.enable = true;
   ly-niri.enable = true;
   my-pkgs.enable = true;
+  nemo.enable = true;
   niri.enable = true;
   openrgb.enable = true;
   waybar.enable = true;
@@ -36,6 +38,7 @@
     config.git.packages
     config.ly-niri.packages
     config.my-pkgs.packages
+    config.nemo.packages
     config.niri.packages
     config.openrgb.packages
     config.waybar.packages

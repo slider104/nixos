@@ -10,7 +10,6 @@ let
     pkgs.waybar
   ];
 
-  # Dotfiles configuration
   dotfilesDir = "/home/slider/nixos/dotfiles";
   configDir = ".config/waybar";
 
@@ -28,17 +27,16 @@ let
     {
       source = "${dotfilesDir}/waybar/power-menu.sh";
       target = "power-menu.sh";
-      mode = "0644";
+      mode = "0755";
     }
     {
       source = "${dotfilesDir}/waybar/start-waybar.sh";
       target = "start-waybar.sh";
-      mode = "0644";
+      mode = "0755";
     }
 
   ];
 
-  # User info
   username = "slider";
   userGroup = "users";
   userHome = "/home/${username}";

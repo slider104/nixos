@@ -1,27 +1,22 @@
 { config, pkgs, lib, ... }:
 
 let
-  myModuleName = "niri";
+  myModuleName = "nemo";
   myModulePackages = [
-    pkgs.alacritty
-    pkgs.brave
-    pkgs.capitaine-cursors
-    pkgs.nemo-fileroller
-    pkgs.niri
-    pkgs.swaybg
-    pkgs.xwayland-satellite
+    pkgs.nemo
+    pkgs.adwaita-icon-theme
+    pkgs.adwaita-qt
   ];
 
   dotfilesDir = "/home/slider/nixos/dotfiles";
-  configDir = ".config/niri";
+  configDir = ".config/nemo";
 
   dotfiles = [
     {
-      source = "${dotfilesDir}/niri/config.kdl";
-      target = "config.kdl";
+      source = "${dotfilesDir}/nemo/nemo.conf";
+      target = "nemo.conf";
       mode = "0644";
     }
-
   ];
 
   username = "slider";
@@ -49,19 +44,5 @@ in
         chown ${username}:${userGroup} ${userHome}/${configDir}/${file.target}
       '') dotfiles}
     '';
-    programs.${myModuleName} = {
-      enable = true;
-    };
-
-    systemd.user.services.${myModuleName} = {
-    #   enable = true;
-      after = [
-        "graphical-session-pre.target"
-    #     "display-manager.service"
-    #     "systemd-user-sessions.service"
-    #     "sound.target"
-      ];
-      preStart = "${pkgs.bash}/bin/bash -c 'until [ -e /dev/dri/renderD128 ]; do sleep 0.1; done'";
-    };
   };
 }
