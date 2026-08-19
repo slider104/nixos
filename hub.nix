@@ -7,6 +7,7 @@
     ./modules/git/git.nix
     ./modules/ly/ly-niri.nix
     ./modules/niri/niri.nix
+    ./modules/openrgb/openrgb.nix
     ./modules/waybar/waybar.nix
     ./modules/wofi/wofi.nix
     ./modules/zed/zed-editor.nix
@@ -21,6 +22,7 @@
   ly-niri.enable = true;
   my-pkgs.enable = true;
   niri.enable = true;
+  openrgb.enable = true;
   waybar.enable = true;
   wofi.enable = false;
   zed-editor.enable = true;
@@ -35,6 +37,7 @@
     config.ly-niri.packages
     config.my-pkgs.packages
     config.niri.packages
+    config.openrgb.packages
     config.waybar.packages
     config.wofi.packages
     config.zed-editor.packages

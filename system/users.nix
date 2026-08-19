@@ -6,6 +6,7 @@
       extraGroups = [
         "audio"
         "git"
+        "i2c"
         "input"
         "networkmanager"
         "render"
