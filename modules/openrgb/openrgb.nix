@@ -24,7 +24,7 @@ let
 
   # User info
   username = "slider";
-  userGroup = "users";
+  userGroup = "i2c";
   userHome = "/home/${username}";
 
 in
