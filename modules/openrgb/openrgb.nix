@@ -16,8 +16,8 @@ let
       mode = "0644";
     }
     {
-      source = "${dotfilesDir}/openrgb/profiles";
-      target = "profiles";
+      source = "${dotfilesDir}/openrgb/cyan.json";
+      target = "cyan.json";
       mode = "0755";
     }
   ];
