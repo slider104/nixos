@@ -4,6 +4,7 @@ let
   myModuleName = "nemo";
   myModulePackages = [
     pkgs.nemo
+    pkgs.nemo-fileroller
     pkgs.adwaita-icon-theme
     pkgs.adwaita-qt
   ];

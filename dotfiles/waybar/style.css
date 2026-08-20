@@ -36,7 +36,7 @@ window#waybar {
 /* Icon styling */
 #custom-launcher {
     background-color: rgba(0, 0, 0, 0);
-    padding: 4px 12px;
+    padding: 4px 6px;
     color: #CCCCCC;
 }
 
@@ -48,7 +48,6 @@ window#waybar {
 #niri-workspaces {
     background-color: rgba(0, 0, 0, 0);
     color: #CCCCCC;
-    padding: 0 2px;
 }
 
 #niri-workspaces button {
@@ -102,7 +101,7 @@ window#waybar {
 #custom-power {
     background-color: rgba(0, 0, 0, 0);
     color: #FF0000;
-    padding: 4px 12px;
+    padding: 4px 6px;
 }
 
 #custom-power:hover {

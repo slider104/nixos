@@ -6,7 +6,6 @@ let
     pkgs.alacritty
     pkgs.brave
     pkgs.capitaine-cursors
-    pkgs.nemo-fileroller
     pkgs.niri
     pkgs.swaybg
     pkgs.xwayland-satellite
