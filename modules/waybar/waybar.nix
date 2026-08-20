@@ -4,7 +4,6 @@ let
   myModuleName = "waybar";
   myModulePackages = [
     pkgs.brightnessctl
-    pkgs.gpu-usage-waybar
     pkgs.pavucontrol
     pkgs.lm_sensors
     pkgs.waybar

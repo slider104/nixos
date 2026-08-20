@@ -19,12 +19,6 @@ window#waybar {
     color: #CCCCCC;
 }
 
-#custom-gpu {
-    background-color: rgba(0, 0, 0, 0);
-    color: #CCCCCC;
-    padding: 4px 8px;
-}
-
 /* Center window title */
 #niri-window {
     background-color: rgba(0, 0, 0, 0);
@@ -111,7 +105,6 @@ window#waybar {
 /* Hover effects for all modules */
 #cpu:hover,
 #memory:hover,
-#custom-gpu:hover,
 #pulseaudio:hover,
 #backlight:hover,
 #custom-weather:hover,

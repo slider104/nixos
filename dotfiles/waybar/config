@@ -17,8 +17,6 @@
     "cpu",
     "custom/separator",
     "memory",
-    "custom/separator",
-    "custom/gpu"
   ],
   "modules-center": ["niri/window"],
   "modules-right": [
@@ -73,14 +71,6 @@
     "format": "RAM {percentage}%",
     "tooltip": true,
     "tooltip-format": "Memory: {used:0.1f}GB / {total:0.1f}GB\n({percentage}%)"
-  },
-
-  "custom/gpu": {
-    "exec": "gpu-usage-waybar",
-    "format": "{}%",
-    "interval": 50,
-    "tooltip": true,
-    "tooltip-format": "GPU Usage: {}%"
   },
 
   "pulseaudio": {
