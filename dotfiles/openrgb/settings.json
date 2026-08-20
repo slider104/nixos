@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "devices": [
+    {
+      "name": "MSI MYSTIC LIGHT",
+      "type": "Motherboard",
+      "path": "/dev/rgb_msi",
+      "zones": [
+        {
+          "name": "All Zones",
+          "leds": "all",
+          "mode": "direct",
+          "colors": [
+            {
+              "r": 0,
+              "g": 20,
+              "b": 20,
+              "hex": "001414"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sapphire Radeon RX 9060 XT Nitro+",
+      "type": "GraphicsCard",
+      "path": "/dev/rgb_amd",
+      "zones": [
+        {
+          "mode": "Static",
+          "colors": [
+            {
+              "r": 0,
+              "g": 20,
+              "b": 20,
+              "hex": "001414"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kingston Fury DDR5 DRAM",
+      "type": "Memory",
+      "path": "/dev/rgb_kingston",
+      "brightness": 30,
+      "zones": [
+        {
+          "name": "Entire Device",
+          "leds": "all",
+          "mode": "direct",
+          "colors": [
+            {
+              "r": 0,
+              "g": 20,
+              "b": 20,
+              "hex": "001414"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
