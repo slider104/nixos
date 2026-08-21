@@ -22,8 +22,6 @@
   "modules-right": [
     "pulseaudio",
     "custom/separator",
-    "backlight",
-    "custom/separator",
     "custom/weather",
     "custom/separator",
     "clock",
