@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
+    ./modules/alacritty/alacritty.nix
     ./modules/bash/bash.nix
     ./modules/fuzzel/fuzzel.nix
     ./modules/gaming/gaming.nix
@@ -16,6 +17,7 @@
   ];
 
   # --- ENABLE MODULES ---
+  alacritty.enable = true;
   bash.enable = true;
   fuzzel.enable = true;
   gaming.enable = true;
@@ -32,6 +34,7 @@
   # --- MERGE BLOCK ---
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = pkgs.lib.mkMerge [
+    config.alacritty.packages
     config.bash.packages
     config.fuzzel.packages
     config.gaming.packages

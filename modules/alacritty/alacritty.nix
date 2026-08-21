@@ -1,25 +1,20 @@
 { config, pkgs, lib, ... }:
 
 let
-  myModuleName = "niri";
+  myModuleName = "alacritty";
   myModulePackages = [
-    pkgs.brave
-    pkgs.capitaine-cursors
-    pkgs.niri
-    pkgs.swaybg
-    pkgs.xwayland-satellite
+    pkgs.alacritty
   ];
 
   dotfilesDir = "/home/slider/nixos/dotfiles";
-  configDir = ".config/niri";
+  configDir = ".config/alacritty";
 
   dotfiles = [
     {
-      source = "${dotfilesDir}/niri/config.kdl";
-      target = "config.kdl";
+      source = "${dotfilesDir}/alacritty/alacritty.toml";
+      target = "alacritty.toml";
       mode = "0755";
     }
-
   ];
 
   username = "slider";
@@ -47,19 +42,5 @@ in
         chown ${username}:${userGroup} ${userHome}/${configDir}/${file.target}
       '') dotfiles}
     '';
-    programs.${myModuleName} = {
-      enable = true;
-    };
-
-    systemd.user.services.${myModuleName} = {
-    #   enable = true;
-      after = [
-        "graphical-session-pre.target"
-    #     "display-manager.service"
-    #     "systemd-user-sessions.service"
-    #     "sound.target"
-      ];
-      preStart = "${pkgs.bash}/bin/bash -c 'until [ -e /dev/dri/renderD128 ]; do sleep 0.1; done'";
-    };
   };
 }

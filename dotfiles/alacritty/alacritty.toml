@@ -1,0 +1,124 @@
+# ~/.config/alacritty/alacritty.toml
+
+[window]
+# Start with a transparent window
+padding = { x = 16, y = 16 }
+decorations = "Full"
+
+[window.dimensions]
+# Optional: set initial size if you prefer
+# lines = 30
+# columns = 100
+
+[window.opacity]
+# The base opacity of the window (0.0 to 1.0)
+# 0.85 is a good balance for readability with blur
+value = 0.85
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font Mono", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font Mono", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font Mono", style = "Bold Italic" }
+size = 12.0
+
+[terminal]
+# Optional: Enable mouse reporting
+mouse = { bindings = true }
+
+[style]
+# Use a modern dark theme (Monokai-inspired)
+family = "JetBrainsMono Nerd Font Mono"
+
+[[style.dimensions]]
+# This block is for advanced theming if you want to override specific styles
+# Usually not needed for basic setup
+
+[bell]
+animation = "EaseOutExpo"
+duration = 0
+command = { program = "none" }
+
+# --- THEME COLORS (Monokai-ish Dark) ---
+# These define the high-contrast look that works well with glass backgrounds
+
+[colors.primary]
+background = "#1e212a" # Fallback if blur fails
+foreground = "#a9b1d6"
+dim_foreground = "#787c99"
+bright_foreground = "#c4c9e2"
+
+[colors.cursor]
+text = "#1e212a"
+cursor = "#ff9e64"
+
+[colors.vi_mode_cursor]
+text = "#1e212a"
+cursor = "#7aa2f7"
+
+[colors.search]
+matches = { foreground = "#000000", background = "#c0caf5" }
+focused_match = { foreground = "#000000", background = "#7aa2f7" }
+
+[colors.hints]
+start = { foreground = "#1e212a", background = "#e0af68" }
+end = { foreground = "#1e212a", background = "#7aa2f7" }
+
+[colors.line_indicator]
+foreground = "#1e212a"
+background = "#7aa2f7"
+
+[colors.footer_bar]
+foreground = "#1e212a"
+background = "#7aa2f7"
+
+[colors.hints]
+start = { foreground = "#1e212a", background = "#e0af68" }
+end = { foreground = "#1e212a", background = "#7aa2f7" }
+
+[colors.selection]
+text = "#1e212a"
+background = "#c0caf5"
+
+[colors.normal]
+black = "#1a1b26"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+magenta = "#bb9af7"
+cyan = "#7dcfff"
+white = "#a9b1d6"
+
+[colors.bright]
+black = "#414868"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+magenta = "#bb9af7"
+cyan = "#7dcfff"
+white = "#c0caf5"
+
+[colors.dim]
+black = "#1a1b26"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+magenta = "#bb9af7"
+cyan = "#7dcfff"
+white = "#a9b1d6"
+
+[colors.indexed_colors]
+# Add more indexed colors if needed (usually 16-256)
+# Most modern terminals use the 16-color palette above
+
+[scrolling]
+history = 10000
+multiplier = 100
+
+[bell]
+animation = "EaseOutExpo"
+duration = 0
+command = { program = "none" }
