@@ -72,10 +72,6 @@ background = "#7aa2f7"
 foreground = "#1e212a"
 background = "#7aa2f7"
 
-[colors.hints]
-start = { foreground = "#1e212a", background = "#e0af68" }
-end = { foreground = "#1e212a", background = "#7aa2f7" }
-
 [colors.selection]
 text = "#1e212a"
 background = "#c0caf5"
