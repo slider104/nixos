@@ -13,7 +13,7 @@ let
     {
       source = "${dotfilesDir}/openrgb/settings.json";
       target = "settings.json";
-      mode = "0644";
+      mode = "0755";
     }
     {
       source = "${dotfilesDir}/openrgb/cyan.json";

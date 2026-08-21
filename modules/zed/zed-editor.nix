@@ -13,7 +13,7 @@ let
     {
       source = "${dotfilesDir}/zed/settings.json";
       target = "settings.json";
-      mode = "0644";
+      mode = "0755";
     }
   ];
 

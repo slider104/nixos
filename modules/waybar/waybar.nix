@@ -16,12 +16,12 @@ let
     {
       source = "${dotfilesDir}/waybar/config";
       target = "config";
-      mode = "0644";
+      mode = "0755";
     }
     {
       source = "${dotfilesDir}/waybar/style.css";
       target = "style.css";
-      mode = "0644";
+      mode = "0755";
     }
     {
       source = "${dotfilesDir}/waybar/power-menu.sh";

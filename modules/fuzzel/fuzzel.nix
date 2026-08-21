@@ -13,7 +13,7 @@ let
     {
       source = "${dotfilesDir}/fuzzel/fuzzel.ini";
       target = "fuzzel.ini";
-      mode = "0644";
+      mode = "0755";
     }
   ];
 

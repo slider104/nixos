@@ -18,7 +18,7 @@ let
     {
       source = "${dotfilesDir}/niri/config.kdl";
       target = "config.kdl";
-      mode = "0644";
+      mode = "0755";
     }
 
   ];

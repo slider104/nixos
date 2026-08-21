@@ -15,12 +15,12 @@ let
     {
       source = "${dotfilesDir}/wofi/config";
       target = "config";
-      mode = "0644";
+      mode = "0755";
     }
     {
       source = "${dotfilesDir}/wofi/style.css";
       target = "style.css";
-      mode = "0644";
+      mode = "0755";
     }
   ];
 

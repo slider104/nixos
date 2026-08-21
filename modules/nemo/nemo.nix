@@ -16,7 +16,7 @@ let
     {
       source = "${dotfilesDir}/nemo/nemo.conf";
       target = "nemo.conf";
-      mode = "0644";
+      mode = "0755";
     }
   ];
 
