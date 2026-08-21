@@ -61,5 +61,16 @@ in
       enable = true;
       group = "i2c";
     };
+
+    systemd.services.openrgb-load-profile = {
+      description = "Load OpenRGB profiles on startup";
+      after = [ "openrgb.service" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        User = "slider";
+        ExecStart = "${pkgs.openrgb}/bin/openrgb --config ${userHome}/${configDir}/cyan.json";
+      };
+    };
   };
 }
