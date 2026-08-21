@@ -31,7 +31,7 @@ window#waybar {
 #custom-launcher {
     background-color: rgba(0, 0, 0, 0);
     padding: 4px 12px;
-    padding-left: 6px;
+    padding-right: 6px;
     color: #CCCCCC;
 }
 
@@ -97,7 +97,7 @@ window#waybar {
     background-color: rgba(0, 0, 0, 0);
     color: #FF0000;
     padding: 4px 12px;
-    padding-right: 6px;
+    padding-left: 6px;
 }
 
 #custom-power:hover {
