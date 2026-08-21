@@ -90,7 +90,7 @@
     "interval": 600,
     "format": "{}",
     "tooltip": true,
-    "tooltip-format": "Weather: Gütersloh, Germany\n{exec}",
+    "tooltip-format": "Weather: Gütersloh, Germany",
     "on-click": "xdg-open 'https://wttr.in/Gütersloh'"
   },
 
