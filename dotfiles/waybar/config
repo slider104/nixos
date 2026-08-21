@@ -78,9 +78,9 @@
     },
     "format-muted": "0%",
     "on-click": "pavucontrol",
-    "on-click-right": "wpctl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-scroll-up": "wpctl set-sink-volume @DEFAULT_SINK@ 5%+",
-    "on-scroll-down": "wpctl set-sink-volume @DEFAULT_SINK@ 5%-",
+    "on-click-right": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
     "tooltip": true,
     "tooltip-format": "Volume: {volume}%\nDevice: {desc}"
   },
