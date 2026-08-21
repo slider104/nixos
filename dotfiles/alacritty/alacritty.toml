@@ -113,8 +113,3 @@ white = "#a9b1d6"
 [scrolling]
 history = 10000
 multiplier = 100
-
-[bell]
-animation = "EaseOutExpo"
-duration = 0
-command = { program = "none" }
