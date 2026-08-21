@@ -1,6 +1,18 @@
 {
   security.sudo.wheelNeedsPassword = false;
   security.polkit.enable = true;
+  security.polkit.extraRules = ''
+  polkit.addRule(function(action, subject) {
+    if (action.id == "org.freedesktop.login1.power-off" ||
+        action.id == "org.freedesktop.login1.reboot" ||
+        action.id == "org.freedesktop.login1.suspend" ||
+        action.id == "org.freedesktop.login1.hibernate") {
+      if (subject.isInGroup("users") || subject.user == "slider") {
+        return polkit.Result.YES;
+      }
+    }
+  });
+  '';
   networking.hostName = "nixos";
   # networking.wireless.enable = true;
   networking.networkmanager.enable = true;
