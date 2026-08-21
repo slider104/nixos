@@ -22,6 +22,8 @@
   "modules-right": [
     "pulseaudio",
     "custom/separator",
+    "backlight",
+    "custom/separator",
     "custom/weather",
     "custom/separator",
     "clock",
@@ -94,8 +96,6 @@
   "on-click": "xrandr --output $(xrandr --query | grep ' connected' | cut -d' ' -f1 | head -1) --brightness 0.5",
   "on-scroll-up": "xrandr --output $(xrandr --query | grep ' connected' | cut -d' ' -f1 | head -1) --brightness +0.1",
   "on-scroll-down": "xrandr --output $(xrandr --query | grep ' connected' | cut -d' ' -f1 | head -1) --brightness -0.1",
-  "tooltip": true,
-  "tooltip-format": "Brightness: {}"
 },
 
   "custom/weather": {
