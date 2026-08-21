@@ -85,15 +85,18 @@
     "tooltip-format": "Volume: {volume}%\nDevice: {desc}"
   },
 
-  "backlight": {
-    "device": "amd_bl0",
-    "format": "{percent}%",
-    "on-click": "brightnessctl set 50%",
-    "on-scroll-up": "brightnessctl set +5%",
-    "on-scroll-down": "brightnessctl set 5%-",
-    "tooltip": true,
-    "tooltip-format": "Brightness: {percent}%"
+"backlight": {
+  "exec": "xrandr --query | grep ' connected' | cut -d' ' -f1 | xargs -I {} sh -c 'echo {}=$(xrandr --output {} --getbrightness | grep -oP \"(?<=brightness )\d+\.\d+\")' | head -1 | cut -d'=' -f2",
+  "format": "{}%",
+  "format-icons": {
+    "default": ["◢", "◣", "◤", "◥"]
   },
+  "on-click": "xrandr --output $(xrandr --query | grep ' connected' | cut -d' ' -f1 | head -1) --brightness 0.5",
+  "on-scroll-up": "xrandr --output $(xrandr --query | grep ' connected' | cut -d' ' -f1 | head -1) --brightness +0.1",
+  "on-scroll-down": "xrandr --output $(xrandr --query | grep ' connected' | cut -d' ' -f1 | head -1) --brightness -0.1",
+  "tooltip": true,
+  "tooltip-format": "Brightness: {}"
+},
 
   "custom/weather": {
     "exec": "curl -s 'wttr.in/Gütersloh?format=%t+%c' | sed 's/+/ /g'",
