@@ -3,6 +3,7 @@
 let
   myModuleName = "nemo";
   myModulePackages = [
+    pkgs.gnome-disk-utility
     pkgs.nemo
     pkgs.nemo-fileroller
     pkgs.adwaita-icon-theme
