@@ -64,7 +64,7 @@ in
 
     systemd.services.openrgb-load-profile = {
       description = "Load OpenRGB profiles on startup";
-      after = [ "openrgb.service" ];
+      after = [ "openrgb.service" "hardware.target" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         Type = "oneshot";
@@ -72,5 +72,8 @@ in
         ExecStart = "${pkgs.openrgb}/bin/openrgb --config ${userHome}/${configDir}/cyan.json";
       };
     };
+    services.udev.rules = [
+      ''KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"''
+    ];
   };
 }
