@@ -1,6 +1,7 @@
 {
   "style": "style.css",
   "layer": "top",
+  "exclusive": true,
   "position": "top",
   "height": 30,
   "spacing": 0,
