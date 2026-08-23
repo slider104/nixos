@@ -1,6 +1,6 @@
 {
   "style": "style.css",
-  "layer": "overlay",
+  "layer": "top",
   "exclusive": true,
   "position": "top",
   "height": 30,
