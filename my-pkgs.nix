@@ -12,6 +12,7 @@ let
     pkgs.mediawriter
     pkgs.nil
     pkgs.rnote
+    pkgs.rustdesk
     pkgs.seahorse
     pkgs.shortwave
     pkgs.superfile
