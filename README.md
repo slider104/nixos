@@ -1,3 +1,5 @@
+# OUTDATED!!! this readme will change soon, i changed to minimal install.
+
 # Fresh installation
 #### nixos - flakes - niri - waybar - gaming - modular - NO home-manager
 this is my personal nixos setup for noobs like me. super lightweight and ready for gaming. very early, young and unpolished.
@@ -165,11 +167,6 @@ sudo nixos-rebuild switch --flake .
 - push to main
 ```bash
 git push
-```
-if you ever crash badly after a rebuild and can't revert to a working state, 
-pull the working files before you push the broken build to main
-```bash
-git pull
 ```
 #  
 have fun with nixos
