@@ -3,7 +3,7 @@
 - load the minimal installation ISO from https://nixos.org/download/
 - write to a USB-stick (fedora-media-writer)
 - boot overwrite to USB (F12 on a thinkpad)
-- select the new kernal in the boot loader
+- select the new kernel in the boot loader
 - now in the tty change user to root
 ```bash
 sudo -i
@@ -64,9 +64,6 @@ mkfs.fat -F 32 -n boot /dev/sda1
 mount /dev/disk/by-label/nixos /mnt
 ```
 ```bash
-mount /dev/disk/by-label/nixos /mnt
-```
-```bash
 mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
 ```
 ```bash
@@ -82,11 +79,11 @@ nixos-generate-config --root /mnt
 ```bash
 nano /mnt/etc/nixos/configuration.nix
 ```
-- read a little bit, an edit the important stuff
+- read a little bit and edit the important stuff
 - set the timezone
 - next stop is locale
 - default key layout is "us", change when needed
-- activate the user block and chage "alice" to "slider"
+- activate the user block and change "alice" to "slider"
 - search the file for a section that looks like this
 ```nix
 environment.systemPackages = with pkgs; [
@@ -123,7 +120,7 @@ reboot
 
 ## Final Steps. Clone and edit the real config
 - first after reboot you will be offline with us key layout
-- just do the "Getting started" again and come back
+- just do the "Getting started" optional points again and come back
 - download my config
 ```bash
 git clone https://github.com/slider104/nixos.git
@@ -169,7 +166,7 @@ sudo reboot
 ### --- you can explore ---
 an authentication popup can shows up, just hit enter without password
 if you are lost at the start, here are the most critical keyboard-shortcuts.
-####   MOD+D = open app launcher, the file exlorer is nemo/files
+####   MOD+D = open app launcher, the file explorer is nemo/files
 ####   MOD+T = open terminal "alacritty"
 ####   MOD+F = expand active app to screen width (toggle)
 ####   MOD+Shift+F = active app fullscreen (toggle)
@@ -182,7 +179,7 @@ look in configuration.nix and follow the path of all the imports to learn its mo
 in /modules are all the *.nix modules. when you want to create a new custom dotfile for a program, 
 you can use my blueprint system. take a look at /modules/fuzzel/fuzzel.nix it makes sure you can edit your dotfiles in /dotfiles/yourdotfile/config.cfg and write it to the correct directory.
 at least the directory of the source file should exist.
-in ~/nixos/modules/bash/bash.nix are my bash aliases. usefull if you change alot.
+in ~/nixos/modules/bash/bash.nix are my bash aliases. useful if you change alot.
 ```
 # Aliases
 alias cat='bat'
