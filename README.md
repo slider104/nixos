@@ -201,7 +201,7 @@ you need to modify the ~/nixos/modules/git/git.nix module for your git account.
 - open the terminal and get your ssh-keygen
 - if getting questions about passphrase or something, just hit enter, dont write anything
 ```bash
-ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C your.email@blabla.com
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C YOUR.EMAIL@HOST.com
 ```
 ```bash
 fresh ~/.ssh/id_ed25519.pub
