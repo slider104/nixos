@@ -154,13 +154,17 @@ fresh system/boot.nix
 ```bash
 fresh my-pkgs.nix
 ```
-- comment out "rustdesk", it get's build, this is super slow
+- comment out "rustdesk", it will build, this is super slow
 - you can also get rid of "libreoffice" if you want
 - save and quit. we should be good now to build the flake
 ```bash
 sudo nixos-rebuild switch --flake .
 ```
 - this will take a hot minute, just let it run
+- reboot, welcome to my very simple config
+```bash
+sudo reboot
+```
 
 ### --- you can explore ---
 an authentication popup can shows up, just hit enter without password
