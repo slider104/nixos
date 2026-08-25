@@ -13,7 +13,7 @@ let
     alias nrb='sudo nixos-rebuild boot --flake ~/nixos#nixos'
     alias nck='cd ~/nixos && nix flake check && cd -'
     alias ncg='cd ~/nixos && sudo nix-collect-garbage --delete-older-than 30d && cd -'
-    alias nup='cd ~/nixos && nix flake update && git add . && git commit -m "system update" && sudo nixos-rebuild boot --flake . && cd -'
+    alias nup='cd ~/nixos && nix flake update && sudo nixos-rebuild boot --flake ~/nixos#nixos && cd -'
 
     # Custom prompt (applies to all users)
     export PS1='\[\e[38;5;76m\]\u\[\e[0m\] in \[\e[38;5;32m\]\w\[\e[0m\] \$ '
