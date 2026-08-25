@@ -157,6 +157,9 @@ fresh my-pkgs.nix
 ```bash
 sudo nixos-rebuild switch --flake .
 ```
+```bash
+sudo chown -R slider:users ~/.config
+```
 - this will take a hot minute, just let it run
 - reboot, welcome to my very simple config
 ```bash
