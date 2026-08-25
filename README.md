@@ -2,7 +2,7 @@
 ## Getting started
 - load the minimal installation ISO from https://nixos.org/download/
 - write to a USB-stick (fedora-media-writer)
-- boot overwrite to USB (F12 on a thinkpad)
+- reboot with boot overwrite to USB (F12 on a thinkpad)
 - select the new kernel in the boot loader
 - now in the tty change user to root
 ```bash
