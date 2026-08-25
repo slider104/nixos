@@ -1,92 +1,174 @@
-# OUTDATED!!! this readme will change soon, i changed to minimal install.
-
 # Fresh installation
-#### nixos - flakes - niri - waybar - gaming - modular - NO home-manager
-this is my personal nixos setup for noobs like me. super lightweight and ready for gaming. very early, young and unpolished.
-the ly display manager is set to autologin.
-i use the niri window manager with a very simple waybar for now.
-
-oh, sorry btw if you are wondering about the english in this document
-i'm not a native english speaker and don't want to use ai for this ;) 
-political? no, i used ai alot to get it to this state.
-
-## 1. ISO installation
-- load the graphical installation ISO from https://nixos.org/download/
+## Getting started
+- load the minimal installation ISO from https://nixos.org/download/
 - write to a USB-stick (fedora-media-writer)
-- boot from USB into KDE with the latest Kernal
-- do the standard install and select KDE as the desktop 
-- select the username that you want
-####   !!! set hostname to "nixos" !!! this guide does not rewrite your hostname
-- reboot into your fresh system
+- boot overwrite to USB (F12 on a thinkpad)
+- select the new kernal in the boot loader
+- now in the tty change user to root
+```bash
+sudo -i
+```
+- optional: set key layout, "us" is the default
+```bash
+loadkeys de
+```
+- optional: set fontsize x2
+```bash
+setfont -d
+```
+- optional: connect to Wi-Fi
+```bash
+nmtui
+```
+- activate connection
+- select network and type in the key
+- exit nmtui and check if you're online
+```bash
+ping google.com
+```
+- "CTRL+C" to stop
 
-## 2. Initial configuration for flakes and git
-- open /etc/nixos/configuration.nix with the kate editor
+## Format the disk
+- check the name of your drive
+```bash
+lsblk
+```
+- you need the main name, no partition.
+- in this guide i use "sda" change this to your lsblk output
+- we use a TUI again for the partitioning
+```bash
+cfdisk /dev/sda
+```
+- delete all partitions cfdisk shows, so you end up with one big free space
+- new: 1G, type: EFI System
+- new: 8G, type: Linux swap
+- new: just press enter for the rest of the space
+#### - write: It will all be gone now!
+- type "yes" and it will write
+- exit cfdisk, "CTRL+L" for a clear screen
+- now a check and make filesystems
+```bash
+lsblk
+```
+```bash
+mkfs.ext4 -L nixos /dev/sda3
+```
+```bash
+mkswap -L swap /dev/sda2
+```
+```bash
+mkfs.fat -F 32 -n boot /dev/sda1
+```
+- mount for the installation
+```bash
+mount /dev/disk/by-label/nixos /mnt
+```
+```bash
+mount /dev/disk/by-label/nixos /mnt
+```
+```bash
+mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
+```
+```bash
+swapon /dev/sda2
+```
+
+## The first config and installation
+- auto-generate the config files
+```bash
+nixos-generate-config --root /mnt
+```
+- a quick and dirty prepare with the nano-editor
+```bash
+nano /mnt/etc/nixos/configuration.nix
+```
+- read a little bit, an edit the important stuff
+- set the timezone
+- next stop is locale
+- default key layout is "us", change when needed
+- activate the user block and chage "alice" to "slider"
 - search the file for a section that looks like this
 ```nix
 environment.systemPackages = with pkgs; [
   # wget
 ];
 ```
-- select the block and overwrite it with this
+- add some apps we need for the next steps
+- don't forget the 2 lines at the end. we activate flakes and unfree Software
 ```nix
-  environment.systemPackages = [
-    pkgs.fresh-editor
-    pkgs.git
-    pkgs.nil
-    pkgs.wget
-    pkgs.zed-editor
-  ];
-  nix.settings.experimental-features = [ "flakes" "nix-command" ];
+environment.systemPackages = with pkgs; [
+  fresh-editor
+  git
+  nil
+  wget
+];
+nixpkgs.config.allowUnfree = true;
+nix.settings.experimental-features = [ "flakes" "nix-command" ];
 ```
-- save and exit the file
-- activate the changes
+- "CTRL+X" to exit nano
+- "y" to save, press enter to overwrite
+- we are ready to install
 ```bash
-sudo nixos-rebuild switch
+nixos-install
+```
+- it will ask you to set a root password when it's done.
+- we also need a user password
+```bash
+nixos-enter --root /mnt -c 'passwd slider'
+```
+- take a strong password for the user and reboot
+```bash
+reboot
 ```
 
-## 3. With flakes enabled, everything can go to /home
-- now you can clone the nixos repo
-- in the terminal you need to be in your home directory
-  (default when opening a terminal like "Konsole" in KDE)
-- this will create the ~/nixos folder with all other files/folders
+## Final Steps. Clone and edit the real config
+- first after reboot you will be offline with us key layout
+- just do the "Getting started" again and come back
+- download my config
 ```bash
 git clone https://github.com/slider104/nixos.git
 ```
-#####   - DELETE ~/nixos/harware-configuration.nix you need your own
-- go to /etc/nixos/ and copy the generated hardware-configuration.nix
-- put that copy in ~/nixos/ instead of the one you got from my repo
-- go to ~/nixos/dotfiles select all folders and copy them
-- got to ~/.config and paste the copies in there
-- take a look also in ~/nixos/configuration.nix for language and keyboard layout
-  it is set to system language: en-us and keyboard layout: german
-- don't do a rebuild, you need to overwrite the username first!
-
-## 4. Change the username in the complete repo
-- open the zed editor
-- open the project/folder ~/nixos
-- on the right you see the project
-- rightclick the top main folder nixos and select "Find in Folder..."
-- search "slider" and click the replace button to the right of the search
-- in the new replace bar you put in your EXACT username from the installer
-- replace all :) its your system now
-
-## 5. Final steps and use
-- open terminal
-- say goodbye to KDE, here comes the final rebuild for the setup
 ```bash
 cd nixos
 ```
+- replace hardware-configuration.nix with your own generated
+```bash
+rm system/hardware-configuration.nix
+```
+```bash
+cp /etc/nixos/hardware-configuration.nix ~/nixos/system/
+```
+now we comment out some stuff to keep the initial build smaller
+```bash
+fresh hub.nix
+```
+- after the inputs you see the module activation
+- deactivate the gaming module by setting it to "false;"
+- save and quit. then the next module
+```bash
+fresh system/boot.nix
+```
+- just comment out the filesystems block with "#"
+- or delete it, but i think its a nice template for auto disk mounting
+- save and quit. then the last one for this guide
+```bash
+fresh my-pkgs.nix
+```
+- comment out "rustdesk", it get's build, this is super slow
+- you can also get rid of "libreoffice" if you want
+- save and quit. we should be good now to build the flake
 ```bash
 sudo nixos-rebuild switch --flake .
 ```
-- if an authentication popup shows up, just hit enter without password
+- this will take a hot minute, just let it run
 
 ### --- you can explore ---
+an authentication popup can shows up, just hit enter without password
 if you are lost at the start, here are the most critical keyboard-shortcuts.
 ####   MOD+D = open app launcher, the file exlorer is nemo/files
 ####   MOD+T = open terminal "alacritty"
 ####   MOD+F = expand active app to screen width (toggle)
-####   MOD+M = active app fullscreen (toggle)
+####   MOD+Shift+F = active app fullscreen (toggle)
 ####   MOD+ARROW = navigate open apps
 ####   MOD+CTRL+ARROW = move active app
 ####   use PGUP and PGDOWN instead of ARROW to navigate/move between workspaces
@@ -94,20 +176,23 @@ the system itself is very clean and minimal.
 learn about the system and its structure in your ~/nixos directory.
 look in configuration.nix and follow the path of all the imports to learn its modular structure.
 in /modules are all the *.nix modules. when you want to create a new custom dotfile for a program, 
-you can use my blueprint system. take a look at /modules/fuzzel/fuzzel.nix it makes sure you can edit your dotfiles in /dotfiles/yourdotfile/config.cfg and link it to the correct directory.
-sometimes when there is no original config file in ~/.config/ you have to put it there to make shure nixos can see it for the link.
+you can use my blueprint system. take a look at /modules/fuzzel/fuzzel.nix it makes sure you can edit your dotfiles in /dotfiles/yourdotfile/config.cfg and write it to the correct directory.
+at least the directory of the source file should exist.
 in ~/nixos/modules/bash/bash.nix are my bash aliases. usefull if you change alot.
-```nix
-cat # "bat";
-ll # "ls -la";
-nrs # "sudo nixos-rebuild switch --flake ~/nixos#nixos";
-nck # "cd ~/nixos && nix flake check && cd -";
-ncg # "cd ~/nixos && sudo nix-collect-garbage --delete-older-than +5 && cd -";
+```
+# Aliases
+alias cat='bat'
+alias ll='ls -la'
+alias nrs='sudo nixos-rebuild switch --flake ~/nixos#nixos'
+alias nrb='sudo nixos-rebuild boot --flake ~/nixos#nixos'
+alias nck='cd ~/nixos && nix flake check && cd -'
+alias ncg='cd ~/nixos && sudo nix-collect-garbage --delete-older-than 30d && cd -'
+alias nup='cd ~/nixos && nix flake update && sudo nixos-rebuild boot --flake ~/nixos#nixos && cd -'
 ```
 when you want to sync changes you make to your own git repo, 
 you need to modify the ~/nixos/modules/git/git.nix module for your git account.
 
-## 6. Setting up git
+## Setting up git
 - read through ~/nixos/modules/git/git.nix and make changes for your user
 - open the terminal and get your ssh-keygen
 - if getting questions about passphrase or something, just hit enter, dont write anything
