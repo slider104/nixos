@@ -51,15 +51,15 @@ in
       enable = true;
     };
 
-    # systemd.user.services.${myModuleName} = {
-    #   enable = true;
-    #   after = [
-    #     "graphical-session-pre.target"
-    #     "display-manager.service"
-    #     "systemd-user-sessions.service"
-    #     "sound.target"
-    #   ];
-    #   preStart = "${pkgs.bash}/bin/bash -c 'until [ -e /dev/dri/renderD128 ]; do sleep 0.5; done'";
-    # };
+    systemd.user.services.${myModuleName} = {
+      enable = true;
+      after = [
+        "graphical-session-pre.target"
+        "display-manager.service"
+        "systemd-user-sessions.service"
+        "sound.target"
+      ];
+      preStart = "${pkgs.bash}/bin/bash -c 'until [ -e /dev/dri/renderD128 ]; do sleep 0.5; done'";
+    };
   };
 }
