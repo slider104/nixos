@@ -73,6 +73,16 @@ window-rule {
     geometry-corner-radius 2
     clip-to-geometry true
 }
+// Steam main Window 90%
+window-rule {
+    match app-id=r#"^steam$"# title=r#"^Steam$"#
+    default-column-width { proportion 0.9; }
+}
+// Steam Friends window 10%
+window-rule {
+    match app-id=r#"^steam$"# title=r#"Friends"#
+    default-column-width { proportion 0.1; }
+}
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
