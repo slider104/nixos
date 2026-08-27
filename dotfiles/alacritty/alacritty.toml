@@ -15,7 +15,6 @@ size = 14.0
 [bell]
 animation = "EaseOutExpo"
 duration = 0
-command = { program = "none" }
 
 [colors.primary]
 background = "#1a1b26"
