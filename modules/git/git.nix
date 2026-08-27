@@ -32,10 +32,10 @@ in
           st = "status";
           ck = "checkout";
           br = "branch";
-          cm = "commit";
+          cm = "commit -m";
           ps = "push";
           pl = "pull";
-          ad = "add";
+          ad = "add .";
           unstage = "reset HEAD --";
         };
       };
