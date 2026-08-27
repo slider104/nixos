@@ -47,7 +47,7 @@ cfdisk /dev/sda
 - new: 1G, type: EFI System
 - new: 8G, type: Linux swap
 - new: just press enter for the rest of the space
-#### - write: It will all be gone now!
+##### write: It will all be gone now!
 - type "yes" and it will write
 - exit cfdisk, "CTRL+L" for a clear screen
 - now a check and make filesystems
