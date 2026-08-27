@@ -6,8 +6,10 @@
       ./system/boot.nix
       ./system/dconf.nix
       ./system/fonts.nix
+      ./system/hardware.nix
       ./system/hardware-configuration.nix
       ./system/host.nix
+      ./system/security.nix
       ./system/users.nix
       ./system/xdg.nix
     ];

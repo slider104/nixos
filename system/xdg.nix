@@ -10,5 +10,4 @@
       common.default = "gtk";
     };
   };
-  services.gvfs.enable = true;
 }

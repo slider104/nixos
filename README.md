@@ -150,9 +150,9 @@ fresh hub.nix
 - deactivate the gaming module by setting it to "false;"
 - save and quit. then the next module
 ```bash
-fresh system/boot.nix
+fresh configuration.nix
 ```
-- just comment out the filesystems block with "#"
+- just comment out the ./system/hardware.nix under "imports" with "#"
 - or delete it, but i think its a nice template for auto disk mounting
 - save and quit. then the last one for this guide
 ```bash

@@ -32,7 +32,6 @@
   zed-editor.enable = true;
 
   # --- MERGE BLOCK ---
-  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = pkgs.lib.mkMerge [
     config.alacritty.packages
     config.bash.packages
