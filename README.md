@@ -164,10 +164,11 @@ fresh my-pkgs.nix
 ```bash
 sudo nixos-rebuild switch --flake .
 ```
+- this will take some time, just let it run
+- when it's done, set permissions for ~/.config
 ```bash
 sudo chown -R slider:users ~/.config
 ```
-- this will take a hot minute, just let it run
 - reboot, welcome to my very simple config
 ```bash
 sudo reboot
