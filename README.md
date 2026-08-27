@@ -1,4 +1,7 @@
 # Fresh installation
+this is my personal nixos setup. very minimal, flakes enabled and no home-manager.
+you would find yourself in an almost default niri with a lightweight waybar and fuzzel as app launcher if you want to try it out in a virtual machine.
+
 ## Getting started
 - load the minimal installation ISO from https://nixos.org/download/
 - write to a USB-stick (fedora-media-writer)
