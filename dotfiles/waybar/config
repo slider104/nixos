@@ -37,7 +37,7 @@
 
   "niri/window": {
     "format": "{}",
-    "max-length": 150
+    "max-length": 100
   },
 
   "custom/launcher": {
