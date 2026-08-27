@@ -172,6 +172,17 @@ sudo chown -R slider:users ~/.config
 ```bash
 sudo reboot
 ```
+##### disconnect nixos from git tracking. you can set up your own git, just follow this guide a little
+- remove git tracking and history information
+```bash
+cd ~/nixos
+```
+```bash
+rm -rf .git
+```
+```bash
+rm -rf .gitignore
+```
 
 ### --- you can explore ---
 an authentication popup can shows up, just hit enter without password
