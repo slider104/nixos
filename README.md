@@ -68,6 +68,9 @@ mkfs.fat -F 32 -n boot /dev/sda1
 mount /dev/disk/by-label/nixos /mnt
 ```
 ```bash
+mkdir -p /mnt/boot
+```
+```bash
 mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
 ```
 ```bash
