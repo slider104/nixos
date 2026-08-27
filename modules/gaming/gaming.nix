@@ -4,12 +4,13 @@ let
   myModuleName = "gaming";
   myModulePackages = [
     # Primary Launchers
-    pkgs.steam
-    pkgs.prismlauncher
     # pkgs.heroic
     # pkgs.lutris
+    pkgs.prismlauncher
+    pkgs.steam
 
     # Utilities
+    pkgs.ckan
     pkgs.gamescope
     pkgs.gamemode
     pkgs.mangohud
