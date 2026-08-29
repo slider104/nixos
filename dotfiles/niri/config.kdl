@@ -4,8 +4,8 @@ spawn-sh-at-startup "swaybg -i ~/nixos/wallpaper/nix01.png -m fill"
 spawn-sh-at-startup "bash -c ~/nixos/dotfiles/waybar/start-waybar.sh"
 
 cursor {
-    xcursor-theme "capitaine-cursors"
-    xcursor-size 24
+    xcursor-theme "bibata-cursors"
+    xcursor-size 26
 }
 input {
     keyboard {

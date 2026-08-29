@@ -4,7 +4,7 @@ let
   myModuleName = "niri";
   myModulePackages = [
     pkgs.brave
-    pkgs.capitaine-cursors
+    pkgs.bibata-cursors
     pkgs.niri
     pkgs.swaybg
     pkgs.xwayland-satellite
