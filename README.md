@@ -164,9 +164,6 @@ fresh my-pkgs.nix
 - save and quit.
 - remove git tracking and history information
 ```bash
-cd ~/nixos
-```
-```bash
 rm -rf .git
 ```
 ```bash
