@@ -35,7 +35,7 @@ background-color=#000000aa
 text-color=#CCCCCC
 
 [urgency=critical]
-background-color=#220000aa
+background-color=#000000aa
 text-color=#FF0000
 # Critical notifications persist until dismissed
 # default-timeout=0
