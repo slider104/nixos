@@ -73,6 +73,8 @@ window#waybar {
 }
 
 /* Right side icons */
+#tray
+
 #pulseaudio {
     background-color: rgba(0, 0, 0, 0);
     color: #CCCCCC;

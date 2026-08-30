@@ -21,6 +21,7 @@
   ],
   "modules-center": ["niri/window"],
   "modules-right": [
+    "group/tray-expander",
     "pulseaudio",
     "custom/separator",
     "custom/weather",
@@ -72,6 +73,22 @@
     "tooltip-format": "Memory: {used:0.1f}GB / {total:0.1f}GB\n({percentage}%)"
   },
 
+  "group/tray-expander": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "tray-group-item"
+    },
+    "modules": [
+      "custom/expand-icon",
+      "tray"
+    ]
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 12
+  },
+
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-icons": {
@@ -102,8 +119,15 @@
     "calendar": {
       "mode": "year",
       "mode-mon-col": 3,
-      "weeks-pos": "right",
+      "weeks-pos": "left",
       "on-scroll": 1
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{:%V}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
     },
     "interval": 1
   },
