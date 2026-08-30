@@ -148,6 +148,7 @@ fresh hub.nix
 ```
 - after the inputs you see the module activation
 - deactivate the gaming module by setting it to "false;"
+- optional: deactivate the git module if you don't use it
 - save and quit. then the next module
 ```bash
 fresh configuration.nix
@@ -160,7 +161,19 @@ fresh my-pkgs.nix
 ```
 - comment out "rustdesk", it will build, this is super slow
 - you can also get rid of "libreoffice" if you want
-- save and quit. we should be good now to build the flake
+- save and quit.
+##### disconnect nixos from git tracking. you can set up your own git, just follow this guide a little
+- remove git tracking and history information
+```bash
+cd ~/nixos
+```
+```bash
+rm -rf .git
+```
+```bash
+rm -rf .gitignore
+```
+- we should be good to build the flake now
 ```bash
 sudo nixos-rebuild switch --flake .
 ```
@@ -172,17 +185,6 @@ sudo chown -R slider:users ~/.config
 - reboot, welcome to my very simple config
 ```bash
 sudo reboot
-```
-##### disconnect nixos from git tracking. you can set up your own git, just follow this guide a little
-- remove git tracking and history information
-```bash
-cd ~/nixos
-```
-```bash
-rm -rf .git
-```
-```bash
-rm -rf .gitignore
 ```
 
 ### --- you can explore ---
