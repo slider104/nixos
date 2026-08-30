@@ -3,6 +3,7 @@
 let
   myModuleName = "mako";
   myModulePackages = [
+    pkgs.libnotify
     pkgs.mako
   ];
 
