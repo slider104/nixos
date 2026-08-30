@@ -25,7 +25,6 @@ max-icon-size=32
 
 # --- Urgency Specifics ---
 default-timeout=5000
-default-depth=1
 
 [urgency=low]
 background-color=#000000aa
