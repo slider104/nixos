@@ -119,8 +119,8 @@
       "weeks-pos": "left",
       "on-scroll": 1,
       "format": {
-        "months": "<span color='#7fc8ff'><b>{}</b></span>",
-        "days": "<span color='#CCCCCC'><b>{}</b></span>",
+        "months": "<span color='#CCCCCC'><b>{}</b></span>",
+        "days": "<span color='#7fc8ff'><b>{}</b></span>",
         "weeks": "<span color='#7fc8ff'><b>W{:%V}</b></span>",
         "weekdays": "<span color='#CCCCCC'><b>{}</b></span>",
         "today": "<span color='#FF0000'><b><u>{}</u></b></span>"
