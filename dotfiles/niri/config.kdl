@@ -124,7 +124,7 @@ window-rule {
 
 binds {
     // Overview.
-    Mod+BackSpace                   hotkey-overlay-title="Hotkeys" { hotkey-overlay show; }
+    Mod+BackSpace                   hotkey-overlay-title="Hotkeys" { show-hotkey-overlay; }
 
     // System.
     Mod+Alt+L                       hotkey-overlay-title="Power Menu" { spawn-sh "bash ~/nixos/dotfiles/waybar/power-menu.sh"; }
