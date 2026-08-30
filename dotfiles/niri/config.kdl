@@ -152,6 +152,8 @@ binds {
     Mod+Return                      hotkey-overlay-title="Start alacritty terminal" { spawn "alacritty"; }
 
     // Window and column behavior.
+    Mod+O                           repeat=false hotkey-overlay-title="Overview" { toggle-overview; }
+
     Mod+Q                           repeat=false hotkey-overlay-title="Close window" { close-window; }
 
     Mod+C                           hotkey-overlay-title="Center column" { center-column; }
