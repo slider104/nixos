@@ -79,10 +79,7 @@
       "transition-duration": 300,
       "children-class": "tray-group-item"
     },
-    "modules": [
-      "custom/expand-icon",
-      "tray"
-    ]
+    "modules": "tray"
   },
   "tray": {
     "icon-size": 16,
