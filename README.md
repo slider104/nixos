@@ -186,12 +186,14 @@ sudo reboot
 ### --- you can explore ---
 an authentication popup can shows up, just hit enter without password
 if you are lost at the start, here are the most critical keyboard-shortcuts.
-####   MOD+D = open app launcher, the file explorer is nemo/files
-####   MOD+T = open terminal "alacritty"
-####   MOD+F = expand active app to screen width (toggle)
-####   MOD+Shift+F = active app fullscreen (toggle)
-####   MOD+ARROW = navigate open apps
-####   MOD+CTRL+ARROW = move active app
+####   Mod+BackSpace    = Hotkey Overlay
+####   Mod+Space        = open app launcher, the file explorer is nemo/files
+####   Mod+Return       = open terminal "alacritty"
+####   Mod+F            = expand active app to screen width (toggle)
+####   Mod+Shift+F      = active app fullscreen (toggle)
+####   Mod+O            = Workspace overview
+####   Mod+Arrow        = navigate open apps
+####   Mod+Ctrl+Arrow   = move active app
 ####   use PGUP and PGDOWN instead of ARROW to navigate/move between workspaces
 the system itself is very clean and minimal.
 learn about the system and its structure in your ~/nixos directory.
