@@ -7,6 +7,7 @@
     ./modules/gaming/gaming.nix
     ./modules/git/git.nix
     ./modules/ly/ly-niri.nix
+    ./modules/mako/mako.nix
     ./modules/nemo/nemo.nix
     ./modules/niri/niri.nix
     ./modules/openrgb/openrgb.nix
@@ -23,6 +24,7 @@
   gaming.enable = true;
   git.enable = true;
   ly-niri.enable = true;
+  mako.enable = true;
   my-pkgs.enable = true;
   nemo.enable = true;
   niri.enable = true;
@@ -39,6 +41,7 @@
     config.gaming.packages
     config.git.packages
     config.ly-niri.packages
+    config.mako.packages
     config.my-pkgs.packages
     config.nemo.packages
     config.niri.packages

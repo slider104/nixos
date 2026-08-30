@@ -1,0 +1,54 @@
+# --- General Appearance ---
+background-color=#000000aa
+text-color=#CCCCCC
+font="JetBrainsMono Nerd Font Mono 16"
+
+border-size=2
+border-color=#7fc8ff
+border-radius=4
+
+padding=14
+margin=14
+
+width=350
+
+anchor=top-right
+layer=overlay
+
+# --- Icons ---
+# Enable icons if your notifications send them
+icons=1
+max-icon-size=32
+
+# --- Buttons & Actions ---
+button-background-color=#00000000
+button-text-color=#7fc8ff
+button-border-size=4
+
+# --- Urgency Specifics ---
+default-timeout=5000
+default-depth=1
+
+[urgency=low]
+background-color=#000000aa
+text-color=#CCCCCC
+
+[urgency=normal]
+background-color=#000000aa
+text-color=#CCCCCC
+
+[urgency=critical]
+background-color=#220000aa
+text-color=#FF0000
+# Critical notifications persist until dismissed
+default-timeout=0
+# Add a subtle red border for critical only if desired, or keep flat
+border-size=2
+border-color=#FF0000
+
+# --- Grouping ---
+# Group similar notifications
+group-by=app-name
+
+# --- Scripts ---
+# If you use scripts to format notifications, ensure they output UTF-8
