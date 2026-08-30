@@ -120,7 +120,7 @@
       "mode": "year",
       "mode-mon-col": 3,
       "weeks-pos": "left",
-      "on-scroll": 1
+      "on-scroll": 1,
       "format": {
         "months": "<span color='#ffead3'><b>{}</b></span>",
         "days": "<span color='#ecc6d9'><b>{}</b></span>",
