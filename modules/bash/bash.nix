@@ -7,7 +7,6 @@ let
   aliasScript = ''
     #! /usr/bin/env bash
     # Aliases
-    alias cat='bat'
     alias ll='ls -la'
     alias nrs='sudo nixos-rebuild switch --flake ~/nixos#nixos'
     alias nrb='sudo nixos-rebuild boot --flake ~/nixos#nixos'
@@ -18,7 +17,7 @@ let
     # Custom prompt (applies to all users)
     export PS1='\[\e[38;5;76m\]\u\[\e[0m\] in \[\e[38;5;32m\]\w\[\e[0m\] \$ '
 
-    # Nitch integration (only runs if nitch is installed)
+    # Nitch integration
     if command -v nitch &> /dev/null; then
       nitch
     fi

@@ -204,7 +204,6 @@ at least the directory of the source file should exist.
 in ~/nixos/modules/bash/bash.nix are my bash aliases. useful if you change alot.
 ```
 # Aliases
-alias cat='bat'
 alias ll='ls -la'
 alias nrs='sudo nixos-rebuild switch --flake ~/nixos#nixos'
 alias nrb='sudo nixos-rebuild boot --flake ~/nixos#nixos'
