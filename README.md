@@ -162,7 +162,6 @@ fresh my-pkgs.nix
 - comment out "rustdesk", it will build, this is super slow
 - you can also get rid of "libreoffice" if you want
 - save and quit.
-##### disconnect nixos from git tracking. you can set up your own git, just follow this guide a little
 - remove git tracking and history information
 ```bash
 cd ~/nixos
