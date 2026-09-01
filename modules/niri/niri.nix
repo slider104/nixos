@@ -61,5 +61,10 @@ in
       ];
       preStart = "${pkgs.bash}/bin/bash -c 'until [ -e /dev/dri/renderD128 ]; do sleep 0.5; done'";
     };
+
+    environment.sessionVariables = {
+      XCURSOR_THEME = "Bibata-Modern-Classic";
+      XCURSOR_SIZE = "26";
+    };
   };
 }
