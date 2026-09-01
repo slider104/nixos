@@ -8,10 +8,10 @@ let
     #! /usr/bin/env bash
     # Aliases
     alias ll='ls -la'
-    alias nrs='sudo nixos-rebuild switch --flake $HOME/nixos#nixos'
-    alias nrb='sudo nixos-rebuild boot --flake $HOME/nixos#nixos'
-    alias nck='cd $HOME/nixos && nix flake check && cd -'
-    alias ncg='cd $HOME/nixos && sudo nix-collect-garbage --delete-older-than 30d && cd -'
+    alias nrs='sudo nixos-rebuild switch --flake $HOME/nixos#nixos 2>&1 | tee $HOME/nixos/logs/rebuild_$(date +%F-%T).log'
+    alias nrb='sudo nixos-rebuild boot --flake $HOME/nixos#nixos 2>&1 | tee $HOME/nixos/logs/rebuild_$(date +%F-%T).log'
+    alias nck='cd $HOME/nixos && nix flake check 2>&1 | tee $HOME/nixos/logs/check_flake_$(date +%F-%T).log && cd -'
+    alias ncg='cd $HOME/nixos && sudo nix-collect-garbage --delete-older-than 30d 2>&1 | tee $HOME/nixos/logs/garbage_collect_$(date +%F-%T).log && cd -'
     alias nup='cd $HOME/nixos && nix flake update && sudo nixos-rebuild boot --flake $HOME/nixos#nixos 2>&1 | tee $HOME/nixos/logs/update_$(date +%F-%T).log && cd -'
 
     # Custom prompt (applies to all users)
