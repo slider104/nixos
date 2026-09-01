@@ -48,10 +48,10 @@ input {
     focus-follows-mouse max-scroll-amount="10%"
 }
 
-// cursor {
-//     xcursor-theme "Bibata-Modern-Classic"
-//     xcursor-size 26
-// }
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 26
+}
 
 // ----------------------------------------------------------------------------
 // Behaviors and aesthetics
