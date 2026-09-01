@@ -62,6 +62,16 @@ in
       preStart = "${pkgs.bash}/bin/bash -c 'until [ -e /dev/dri/renderD128 ]; do sleep 0.5; done'";
     };
 
+    system.activationScripts."${myModuleName}-cursor-default" = ''
+      mkdir -p ${userHome}/.icons/default
+      cat > ${userHome}/.icons/default/index.theme <<'EOF'
+    [Icon Theme]
+    Inherits=Bibata-Modern-Classic
+    EOF
+      chmod 0644 ${userHome}/.icons/default/index.theme
+      chown ${username}:${userGroup} ${userHome}/.icons/default/index.theme
+    '';
+
     environment.sessionVariables = {
       XCURSOR_THEME = "Bibata-Modern-Classic";
       XCURSOR_SIZE = "26";
