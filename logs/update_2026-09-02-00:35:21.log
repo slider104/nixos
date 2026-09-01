@@ -1,0 +1,5 @@
+building the system configuration...
+Not checking switch inhibitors (action = boot)
+Skipping "/boot/EFI/systemd/systemd-bootx64.efi", same boot loader version in place already.
+Skipping "/boot/EFI/BOOT/BOOTX64.EFI", same boot loader version in place already.
+Done. The new configuration is /nix/store/aswg2fpjh4dx9bnldflrhsyl5gss37w6-nixos-system-nixos-26.11.20260831.34ab990
