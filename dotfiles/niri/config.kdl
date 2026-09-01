@@ -148,7 +148,7 @@ binds {
     Mod+R                           hotkey-overlay-title="Start shortwave radio" { spawn "shortwave"; }
     Mod+G                           hotkey-overlay-title="Start steam gaming" { spawn "steam"; }
     Mod+B                           hotkey-overlay-title="Start Brave browser" { spawn "brave"; }
-    Mod+Z                           hotkey-overlay-title="Start zed editor" { spawn "zed"; }
+    Mod+Z                           hotkey-overlay-title="Start zed editor" { spawn "zed-editor"; }
     Mod+Return                      hotkey-overlay-title="Start alacritty terminal" { spawn "alacritty"; }
 
     // Window and column behavior.
