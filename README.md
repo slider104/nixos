@@ -204,11 +204,11 @@ at least the directory of the source file should exist.
 in ~/nixos/modules/bash/bash.nix are my bash aliases. useful if you change alot.
 ```
 # Aliases
-ll  = 'ls -la'
-nrs = 'sudo nixos-rebuild switch --flake ~/nixos#nixos'
-nrb = 'sudo nixos-rebuild boot --flake ~/nixos#nixos'
-nck = 'cd ~/nixos && nix flake check && cd -'
-ncg = 'cd ~/nixos && sudo nix-collect-garbage --delete-older-than 30d && cd -'
+ll  = ls -la
+nrs = sudo nixos-rebuild switch --flake ~/nixos#nixos
+nrb = sudo nixos-rebuild boot --flake ~/nixos#nixos
+nck = cd ~/nixos && nix flake check && cd -
+ncg = cd ~/nixos && sudo nix-collect-garbage --delete-older-than 30d && cd -
 nup = system update, writing a log file to ~/nixos/update...log
 ```
 when you want to sync changes you make to your own git repo, 
