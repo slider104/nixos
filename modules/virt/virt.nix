@@ -25,5 +25,9 @@ in
     virtualisation.spiceUSBRedirection.enable = true;
     services.spice-vdagentd.enable = true;
     services.qemuGuest.enable = true;
+
+    boot.extraModprobeConfig = ''
+      options kvm_amd nested=1
+    '';
   };
 }
