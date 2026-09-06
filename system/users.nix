@@ -8,6 +8,8 @@
         "git"
         "i2c"
         "input"
+        "kvm"
+        "libvirt"
         "networkmanager"
         "render"
         "video"
