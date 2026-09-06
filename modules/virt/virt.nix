@@ -20,7 +20,10 @@ in
   config = lib.mkIf config.${myModuleName}.enable {
     ${myModuleName}.packages = myModulePackages;
 
-    virtualisation.libvirtd.enable = true;
+    virtualisation.libvirtd = {
+      enable = true;
+      daemonSocket = true;
+    };
 
     security.polkit.extraConfig = ''
       polkit.addRule(function(action, subject) {
