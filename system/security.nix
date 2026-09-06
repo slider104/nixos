@@ -14,7 +14,12 @@
       }
     });
   '';
-  services.xserver.displayManager.sessionPackages = [ pkgs.polkit_gnome ];
+
+  services.xserver.displayManager.sessionCommands = ''
+    if command -v /run/current-system/sw/lib/polkit-gnome/polkit-gnome-authentication-agent-1 >/dev/null 2>&1; then
+      /run/current-system/sw/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+    fi
+  '';
 
   services.gvfs.enable = true;
 

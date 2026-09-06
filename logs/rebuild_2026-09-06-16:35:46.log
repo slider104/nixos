@@ -1,0 +1,25 @@
+building the system configuration...
+error:
+       … while calling the 'head' builtin
+         at «https://releases.nixos.org/nixos/unstable/nixos-26.11pre1068089.c043004d1c69/nixexprs.tar.xz?narHash=sha256-PRK1fSEiAcO29DkUoOlsVLGYRK3h1YKVr%2BqQJB0VcYQ%3D»/lib/attrsets.nix:1729:13:
+         1728|           if length values == 1 || pred here (elemAt values 1) (head values) then
+         1729|             head values
+             |             ^
+         1730|           else
+
+       … while evaluating the attribute 'value'
+         at «https://releases.nixos.org/nixos/unstable/nixos-26.11pre1068089.c043004d1c69/nixexprs.tar.xz?narHash=sha256-PRK1fSEiAcO29DkUoOlsVLGYRK3h1YKVr%2BqQJB0VcYQ%3D»/lib/modules.nix:1148:7:
+         1147|     // {
+         1148|       value = addErrorContext "while evaluating the option `${showOption loc}':" value;
+             |       ^
+         1149|       inherit (res.defsFinal') highestPrio;
+
+       … while evaluating the option `system.build.toplevel':
+
+       … while evaluating definitions from `/nix/store/zyag7kpddbmjpl5l23n3nqc6a4hcl5pq-source/nixos/modules/system/activation/top-level.nix':
+
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: A definition for option `services.displayManager.sessionPackages."[definition 2-entry 1]"' is not of type `package with provided sessions'. Definition values:
+       - In `/nix/store/zyag7kpddbmjpl5l23n3nqc6a4hcl5pq-source/nixos/modules/services/display-managers/default.nix': <derivation polkit-gnome-0.105>
+Command 'nix --extra-experimental-features 'nix-command flakes' build --print-out-paths '/home/slider/nixos#nixosConfigurations."nixos".config.system.build.toplevel' --no-link' returned non-zero exit status 1.
