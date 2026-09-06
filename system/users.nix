@@ -9,7 +9,7 @@
         "i2c"
         "input"
         "kvm"
-        "libvirt"
+        "libvirtd"
         "networkmanager"
         "render"
         "video"
