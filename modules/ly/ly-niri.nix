@@ -17,7 +17,6 @@ in
 
   config = lib.mkIf config.${myModuleName}.enable {
     ${myModuleName}.packages = myModulePackages;
-    security.polkit.enable = true;
 
     # services.gnome.gnome-keyring.enable = true;
     # security.pam.services.ly.enableGnomeKeyring = true;

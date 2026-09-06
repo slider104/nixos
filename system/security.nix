@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   security.sudo.wheelNeedsPassword = false;
   security.polkit.enable = true;
@@ -13,6 +14,7 @@
       }
     });
   '';
+  services.xserver.displayManager.sessionPackages = [ pkgs.polkit_gnome ];
 
   services.gvfs.enable = true;
 

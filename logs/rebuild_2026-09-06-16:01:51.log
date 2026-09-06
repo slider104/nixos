@@ -1,0 +1,25 @@
+error:
+       … while calling the 'seq' builtin
+         at «https://releases.nixos.org/nixos/unstable/nixos-26.11pre1068089.c043004d1c69/nixexprs.tar.xz?narHash=sha256-PRK1fSEiAcO29DkUoOlsVLGYRK3h1YKVr%2BqQJB0VcYQ%3D»/lib/modules.nix:401:18:
+          400|         options = checked options;
+          401|         config = checked (removeAttrs config [ "_module" ]);
+             |                  ^
+          402|         _module = checked (config._module);
+
+       … while calling the 'throw' builtin
+         at «https://releases.nixos.org/nixos/unstable/nixos-26.11pre1068089.c043004d1c69/nixexprs.tar.xz?narHash=sha256-PRK1fSEiAcO29DkUoOlsVLGYRK3h1YKVr%2BqQJB0VcYQ%3D»/lib/modules.nix:373:13:
+          372|           else
+          373|             throw baseMsg
+             |             ^
+          374|         else
+
+       error: The option `virtualisation.libvirtd.daemonSocket' does not exist. Definition values:
+       - In `/nix/store/lr9dlni3mhcqz673x4smx18kfn6dvmsv-source/modules/virt/virt.nix':
+           {
+             _type = "if";
+             condition = true;
+             content = true;
+           }
+
+       Did you mean `virtualisation.libvirtd.onBoot', `virtualisation.libvirtd.enable' or `virtualisation.libvirtd.hooks'?
+Command 'nix --extra-experimental-features 'nix-command flakes' build --print-out-paths '/home/slider/nixos#nixosConfigurations."nixos".config.system.build.nixos-rebuild' --no-link' returned non-zero exit status 1.
