@@ -19,4 +19,7 @@ in
 
   config = lib.mkIf config.${myModuleName}.enable {
     ${myModuleName}.packages = myModulePackages;
+
+    virtualisation.libvirtd.enable = true;
+  };
 }

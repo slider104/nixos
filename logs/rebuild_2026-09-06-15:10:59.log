@@ -1,0 +1,23 @@
+error:
+       … while calling the 'seq' builtin
+         at «https://releases.nixos.org/nixos/unstable/nixos-26.11pre1068089.c043004d1c69/nixexprs.tar.xz?narHash=sha256-PRK1fSEiAcO29DkUoOlsVLGYRK3h1YKVr%2BqQJB0VcYQ%3D»/lib/modules.nix:401:18:
+          400|         options = checked options;
+          401|         config = checked (removeAttrs config [ "_module" ]);
+             |                  ^
+          402|         _module = checked (config._module);
+
+       … while evaluating a branch condition
+         at «https://releases.nixos.org/nixos/unstable/nixos-26.11pre1068089.c043004d1c69/nixexprs.tar.xz?narHash=sha256-PRK1fSEiAcO29DkUoOlsVLGYRK3h1YKVr%2BqQJB0VcYQ%3D»/lib/modules.nix:304:9:
+          303|       checkUnmatched =
+          304|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [ ] then
+             |         ^
+          305|           let
+
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: syntax error, unexpected end of file, expecting ';'
+       at /home/slider/nixos/modules/virt/virt.nix:23:1:
+           22| }
+           23|
+             | ^
+Command 'nix --extra-experimental-features 'nix-command flakes' build --print-out-paths '/home/slider/nixos#nixosConfigurations."nixos".config.system.build.nixos-rebuild' --no-link' returned non-zero exit status 1.
